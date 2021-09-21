@@ -18,14 +18,14 @@
 ]{beamer}
 
 % INFORMACIÓN DEL DOCUMENTO
-\def\documenttitle {Título del poster}
+\def\documenttitle {Título del póster}
 
 % IMPORTACIÓN DEL TEMPLATE
 \input{template}
 
 % CONFIGURA BEAMER
 \author{
-	Pablo N. Pizarro \inst{a},
+	Pablo Pizarro R. \inst{a},
 	John Doe \inst{b}
 }
 \institute[shortinst]{
@@ -42,6 +42,19 @@
 	\insertemail{pablo@ppizarror.com}
 }
 
+% Entorno del poster
+\newenvironment{poster}[1][]{%
+	\begin{frame}[fragile,t,environment=poster,#1]%
+	\begin{columns}[t]%
+	\begin{column}{\sepwidth}\end{column}%
+	\begin{column}{\colwidth}%
+	}{
+	\end{column}
+	\begin{column}{\sepwidth}\end{column}%
+	\end{columns}%Ç
+	\end{frame}%
+}
+
 % INICIO DE LAS PÁGINAS
 \begin{document}
 
@@ -53,7 +66,9 @@
 
 % ======================= INICIO DEL DOCUMENTO =======================
 
-\input{example} % Ejemplo, se puede borrar
+\begin{poster}
+	\input{example} % Ejemplo, se puede borrar
+\end{poster}
 
 % FIN DEL DOCUMENTO
 \end{document}

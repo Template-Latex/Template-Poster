@@ -3264,7 +3264,9 @@
 
 % Separador de columnas
 \newcommand{\separatorcolumn}{%
+	\end{column}%
 	\begin{column}{\sepwidth}\end{column}%
+	\begin{column}{\colwidth}%
 }
 
 % Importa librerías
@@ -3368,9 +3370,9 @@
 % Bloques
 \setbeamertemplate{block begin}{%
 	\begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block title}%
-		% \vskip 0pt%
-		\usebeamerfont*{block title}\insertblocktitle%
+		\vskip 0pt%
 		\ifthenelse{\equal{\insertblocktitle}{}}{}{%
+			\usebeamerfont*{block title}\insertblocktitle%
 			\vskip -1.25ex%
 			\begin{beamercolorbox}[colsep=0.025ex]{block separator}\end{beamercolorbox}%
 		}
@@ -3389,12 +3391,11 @@
 	\setbeamertemplate{block end}%
 	{%
 	\end{beamercolorbox}%
-	% \vskip 0pt%
+	\vskip 0pt%
 	\vspace*{2ex}%
 }
 
 % Alertas
-\def\alerttopbar{true}
 \setbeamertemplate{block alerted begin}{%
 	\begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block alerted title}%
 		% \vskip 0pt%
@@ -3654,7 +3655,6 @@
 	\begin{samepage}%
 	\begin{figure}[H] \centering%
 		\corevspacevarcm{\marginimagemulttop}%
-		% \captionsetup{skip=25pt}
 		}{%
 		\setcaptionmargincm{\captionlrmargin}%
 		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
@@ -4604,7 +4604,7 @@
 		{“}{{``}}1 {”}{{''}}1 {…}{{$\ldots$}}1 {`}{\`}1 {–}{{--}}1,
 	numbers=left,
 	numbersep={\sourcecodenumbersep pt},
-	numberstyle=\tiny\color{dkgray},
+	numberstyle=\sourcecodenumbersize\color{dkgray},
 	postbreak=\mbox{$\hookrightarrow$\space},
 	showspaces=false,
 	showstringspaces=false,
@@ -4855,7 +4855,7 @@
 		Template.Name={Template-Presentacion},
 		Template.Type={Normal},
 		Template.Version.Dev={0.0.1-1-PRES},
-		Template.Version.Hash={76F364C5C8BBD2AF8FBA276F3E48F9B5},
+		Template.Version.Hash={8FDE263ED733F834325EB0DFA8A2FA03},
 		Template.Version.Release={0.0.1},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Presentacion},
 		Template.Web.Manual={https://latex.ppizarror.com/presentacion},
@@ -5722,5 +5722,4 @@
 	% -------------------------------------------------------------------------
 	\setcounter{section}{0}
 	\setcounter{footnote}{0}
-	
 }

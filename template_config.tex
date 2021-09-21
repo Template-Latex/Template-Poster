@@ -27,7 +27,6 @@
 
 % CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
 \def\captionalignment {justified}  % Posición {centered,justified,left,right}
-\def\captioncolor {mitred}          % Color nombre objeto (código,figura,tabla)
 \def\captionfontsize{small}        % Tamaño de fuente de los caption
 \def\captionlabelformat {simple}   % Formato leyenda {empty,simple,parens}
 \def\captionlabelsep {colon}       % Sep. {none,colon,period,space,quad,newline}
@@ -35,8 +34,8 @@
 \def\captionlrmargin {0}           % Márgenes izq/der de la leyenda [cm]
 \def\captionlrmarginmc {0}         % Margen izq/der leyenda dentro de cols. [cm]
 \def\captionmarginimage {0}        % Margen vertical entre caption e imagen [cm]
-\def\captionmarginimages {0}   % Margen vertical entre caption e images [cm]
-\def\captionmarginimagesmc {0} % Margen vert. entre caption e imagesmc [cm]
+\def\captionmarginimages {0}       % Margen vertical entre caption e images [cm]
+\def\captionmarginimagesmc {0}     % Margen vert. entre caption e imagesmc [cm]
 \def\captionmarginmultimg {0}      % Margen izq/der leyendas múltiple img [cm]
 \def\captionnumcode {arabic}       % N° código {arabic,alph,Alph,roman,Roman}
 \def\captionnumequation {arabic}   % N° ecuac. {arabic,alph,Alph,roman,Roman}
@@ -45,10 +44,9 @@
 \def\captionnumsubtable {alph}     % N° subtabla {arabic,alph,Alph,roman,Roman}
 \def\captionnumtable {arabic}      % N° tabla {arabic,alph,Alph,roman,Roman}
 \def\captionsubchar {.}            % Caracter entre N° objeto - subfigura/tabla
-\def\captiontbmarginfigure {20}  % Margen sup/inf de leyenda en figuras [pt]
+\def\captiontbmarginfigure {20}    % Margen sup/inf de leyenda en figuras [pt]
 \def\captiontbmargintable {7}      % Margen sup/inf de la leyenda en tablas [pt]
-\def\captiontextbold {false}        % Etiqueta (código,figura,tabla) en negrita
-\def\captiontextcolor {black}      % Color de la leyenda
+\def\captiontextbold {false}       % Etiqueta (código,figura,tabla) en negrita
 \def\captiontextsubnumbold {true}  % N° subfigura/subtabla en negrita
 \def\codecaptiontop {true}         % Leyenda arriba del código fuente
 \def\equationcaptioncenter {true}  % Ecuaciones están centradas o justificadas
@@ -75,7 +73,7 @@
 \def\tablecaptiontop {true}        % Leyenda arriba de las tablas
 
 % ANEXO, CITAS, REFERENCIAS
-\def\bibtexrefsep {6}              % Separación entre refs. {bibtex} [pt]
+\def\bibtexrefsep {0}              % Separación entre refs. {bibtex} [pt]
 \def\bibtexstyle {ieeetr}          % Formato refs. bibtex {apa,ieeetr,etc...}
 \def\stylecitereferences {bibtex}  % Estilo cita/ref {bibtex,custom}
 
@@ -118,19 +116,22 @@
 \def\sitemizeiii {\iitemcirc}      % Estilo itemize nivel 3
 \def\sitemizeiv {\iitembsquare}    % Estilo itemize nivel 4
 \def\sourcecodefontf {\ttfamily}   % Tipo de letra código fuente
-\def\sourcecodefonts{\normalsize}% Tamaño letra código fuente
+\def\sourcecodefonts {\normalsize} % Tamaño letra código fuente
 \def\sourcecodeilfontf {\ttfamily} % Tipo de letra código fuente inline
-\def\sourcecodeilfonts {\small}    % Tamaño letra código fuente inline
-\def\sourcecodenumbersep {3}       % Separación entre número línea y código [pt]
+\def\sourcecodeilfonts{\normalsize}% Tamaño letra código fuente inline
+\def\sourcecodenumbersep {12}      % Separación entre número línea y código [pt]
+\def\sourcecodenumbersize {\small} % Tamaño fuente número línea
 \def\sourcecodetabsize {3}         % Tamaño tabulación código fuente
 \def\tabledefaultplacement {H}     % Posición por defecto de las tablas
 \def\tablenotesameline {true}      % Notas en tablas en una sola línea
-\def\tablenotesfontsize {\scriptsize}   % Tamaño de fuente de las notas en tablas
+\def\tablenotesfontsize{\scriptsize} % Tamaño de fuente de las notas en tablas
 \def\tablepaddingh {0.75}          % Espaciado horizontal de celda de las tablas
 \def\tablepaddingv {1.15}          % Espaciado vertical de celda de las tablas
 \def\tikzdefaultplacement {H}      % Posición por defecto de las figuras tikz
 
 % CONFIGURACIÓN DE LOS COLORES DEL DOCUMENTO
+\def\captioncolor {mitred}         % Color nombre objeto (código,figura,tabla)
+\def\captiontextcolor {black}      % Color de la leyenda
 \def\highlightcolor {yellow}       % Color del subrayado con \hl
 \def\linenumbercolor {gray}        % Color del n° de línea (\showlinenumbers)
 \def\linkcolor {black}             % Color de los links del documento
@@ -243,10 +244,10 @@
 	\setbeamertemplate{enumerate item}{\insertenumlabel.}
 	\setbeamertemplate{enumerate subitem}{\insertsubenumlabel.}
 	\setbeamertemplate{enumerate subsubitem}{\insertsubsubenumlabel.}
-
+	
 	% Navegación
 	\beamertemplatenavigationsymbolsempty
-
+	
 	% Pie de página
 	\setbeamerfont{footline}{size=\normalsize}
 	
