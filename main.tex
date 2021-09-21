@@ -12,7 +12,7 @@
 % CREACIÓN DEL DOCUMENTO
 \pdfminorversion=7
 \documentclass[
-	aspectratio=43, % 1610, 169, 149, 54, 43, 32
+	final,
 	hyperref={pdfencoding=auto,psdextra},
 	xcolor={dvipsnames,table,usenames}
 ]{beamer}
@@ -33,23 +33,260 @@
 \def\universitylocation {Santiago de Chile}
 
 % CONFIGURACIÓN DATOS BEAMER
-\title[\documentsubtitle]{\documenttitle}
-\subtitle{\documentsubject}
-\author[\documentauthor]{
-	\documentauthor,
-	\footnotesize \href{mailto:pablo@ppizarror.com}{pablo@ppizarror.com}
-}
-\institute[UChile]{
-	\includegraphics[height=1.1cm]{\universitydepartmentimage} \\
-	\medskip
-	\universityname \\
-	\universityfaculty \\
-	\universitydepartment
-}
+\title{Recuperación de polígonos de muros a partir de imágenes de planos arquitectónicos mediante métodos de vectorización y deep learning}
+
+\author{Pablo N. Pizarro \small{\href{mailto:pablo@ppizarror.com}{pablo@ppizarror.com}}}
+
+\institute[shortinst]{Universidad de Chile -- Departamento de Ciencias de la Computación}
+
 \date[\today]{\footnotesize{\today}}
 
 % IMPORTACIÓN DEL TEMPLATE
 \input{template}
+\def\posterwidth {66}
+\usepackage[size=custom,width=\posterwidth,height=83,scale=1.0]{beamerposter}
+ 
+% OTROS
+\usepackage{exscale}
+
+
+\setbeamerfont{headline}{family=\normalfont}
+\setbeamerfont{headline title}{size=\huge,series=\bfseries}
+\setbeamerfont{headline author}{size=\Large}
+\setbeamerfont{headline institute}{size=\normalsize}
+\setbeamerfont{block title}{family=\normalfont,size=\large,series=\bfseries}
+\setbeamerfont{heading}{family=\normalfont,series=\bfseries}
+\setbeamerfont{caption}{size=\small}
+\setbeamerfont{footline}{family=\normalfont,size=\normalsize}
+
+
+
+% ====================
+% Macros
+% ====================
+
+\newcommand{\samelineand}{\qquad}
+
+% ====================
+% Elements
+% ====================
+
+% List
+\makeatletter
+\def\@listi{\leftmargin\leftmarginii
+	\topsep 1ex % spacing before
+	\parsep 0\p@ \@plus\p@
+	\itemsep 0.5ex} % spacing between
+\makeatother
+
+% Itemize
+
+\setbeamertemplate{itemize item}{\raise0.5ex \hbox{\vrule width 0.5ex height 0.5ex}}
+\setbeamertemplate{itemize subitem}{\raise0.3ex \hbox{\vrule width 0.5ex height 0.5ex}}
+\setbeamertemplate{itemize subsubitem}{\raise0.2ex \hbox{\vrule width 0.5ex height 0.5ex}}
+
+% Enumerate
+
+\setbeamertemplate{enumerate item}{\insertenumlabel.}
+\setbeamertemplate{enumerate subitem}{\insertsubenumlabel.}
+\setbeamertemplate{enumerate subsubitem}{\insertsubsubenumlabel.}
+
+% Equation
+\setlength\belowdisplayshortskip{2ex}
+
+% Caption
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}[period]
+\setlength{\abovecaptionskip}{2ex}
+\setlength{\belowcaptionskip}{1ex}
+
+% Bibliography
+\setbeamertemplate{bibliography item}[text]
+
+% Navigation
+\beamertemplatenavigationsymbolsempty
+
+% ====================
+% Components
+% ====================
+
+% Heading
+\newcommand\heading[1]
+{%
+	\par\bigskip
+	{\usebeamerfont{heading}\usebeamercolor[fg]{heading}#1}\par\smallskip
+}
+
+% logo
+\newlength{\logoleftwidth}
+\setlength{\logoleftwidth}{0cm}
+\newlength{\logorightwidth}
+\setlength{\logorightwidth}{0cm}
+\newlength{\maxlogowidth}  % space on both sides set to maxlogowidth to keep title centered
+\setlength{\maxlogowidth}{3cm}
+
+\newcommand{\logoright}[1]{
+	\newcommand{\insertlogoright}{#1}
+	\settowidth{\logorightwidth}{\insertlogoright}
+	\addtolength{\logorightwidth}{10ex}
+	\setlength{\maxlogowidth}{\maxof{\logoleftwidth}{\logorightwidth}}
+}
+\newcommand{\logoleft}[1]{
+	\newcommand{\insertlogoleft}{#1}
+	\settowidth{\logoleftwidth}{\insertlogoleft}
+	\addtolength{\logoleftwidth}{10ex}
+	\setlength{\maxlogowidth}{\maxof{\logoleftwidth}{\logorightwidth}}
+}
+
+% Headline
+\setbeamertemplate{headline}
+{
+	\begin{beamercolorbox}{headline}
+		\begin{columns}
+			\begin{column}{\maxlogowidth}
+				\vskip5ex
+				\ifdefined\insertlogoleft
+				\vspace*{\fill}
+				\hspace{10ex}
+				\raggedright
+				\insertlogoleft
+				\vspace*{\fill}
+				\else\fi
+			\end{column}
+			\begin{column}{\dimexpr\paperwidth-\maxlogowidth-\maxlogowidth}
+				\usebeamerfont{headline}
+				\vskip3ex
+				\centering
+				{\usebeamerfont{headline title}\usebeamercolor[fg]{headline title}\inserttitle\\[0.5ex]}
+				\vspace{1cm}
+				{\usebeamerfont{headline author}\usebeamercolor[fg]{headline author}\insertauthor\\[1ex]}
+				\vspace{0.1cm}
+				{\usebeamerfont{headline institute}\usebeamercolor[fg]{headline institute}\insertinstitute\\[1ex]}
+			\end{column}
+			\begin{column}{\maxlogowidth}
+				\vskip5ex
+				\ifdefined\insertlogoright
+				\vspace*{\fill}
+				\raggedleft
+				\insertlogoright
+				\hspace{10ex}
+				\vspace*{\fill}
+				\else\fi
+			\end{column}
+		\end{columns}
+		\vspace{3.5ex}
+		\ifbeamercolorempty[bg]{headline rule}{}{
+			\begin{beamercolorbox}[wd=\paperwidth,colsep=0.5ex]{headline rule}\end{beamercolorbox}
+		}
+	\end{beamercolorbox}
+}
+
+% Block
+\setbeamertemplate{block begin}
+{
+	\begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block title}
+		\vskip0pt
+		\usebeamerfont{block title}\insertblocktitle
+		\vskip-1.25ex
+		\begin{beamercolorbox}[colsep=0.025ex]{block separator}\end{beamercolorbox}
+	\end{beamercolorbox}
+	{\parskip0pt\par}
+	\usebeamerfont{block body}
+	\vskip-0.5ex
+	\begin{beamercolorbox}[colsep*=0ex]{block body}
+		\justifying
+		\setlength{\parskip}{1ex}
+		\vskip-2ex
+	}
+	\setbeamertemplate{block end}
+	{
+	\end{beamercolorbox}
+	\vskip0pt
+	\vspace*{2ex}
+}
+
+% Alert Block
+\def\alerttopbar{true}
+
+\setbeamertemplate{block alerted begin}
+{
+	\begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block alerted title}
+		\vskip0pt
+		\usebeamerfont{block title}\insertblocktitle
+		\ifthenelse{\equal{\alerttopbar}{true}}{\vskip-1.25ex
+			\begin{beamercolorbox}[colsep=0.025ex]{block alerted separator}\end{beamercolorbox}}{}
+	\end{beamercolorbox}
+	{\parskip0pt\par}
+	\usebeamerfont{block body}
+	\vskip-0.5ex
+	\begin{beamercolorbox}[colsep*=0ex]{block alerted body}
+		\justifying
+		\begin{adjustwidth}{1ex}{1ex}
+			\setlength{\parskip}{1ex}
+			\vskip-2ex
+		}
+		\setbeamertemplate{block alerted end}
+		{
+		\end{adjustwidth}
+		\vskip1ex
+	\end{beamercolorbox}
+	\vskip0pt
+	\vspace*{2ex}
+}
+
+
+% Footer
+\newcommand{\footercontent}[1]{\newcommand{\insertfootercontent}{#1}}
+
+\setbeamertemplate{footline}{
+	\ifdefined\insertfootercontent
+	\begin{beamercolorbox}[vmode]{headline}
+		\ifbeamercolorempty[bg]{headline rule}{}{
+			\begin{beamercolorbox}[wd=\paperwidth,colsep=0.25ex]{headline rule}\end{beamercolorbox}
+		}
+		\vspace{1.5ex} % 0.5ex
+		\hspace{\sepwidth}
+		\usebeamerfont{footline}
+		\centering
+		\insertfootercontent
+		\hspace{\sepwidth}
+		\vspace{1.5ex} %0.75ex
+	\end{beamercolorbox}
+	\else\fi
+}
+
+
+
+
+
+
+
+
+
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\colwidth}{0.4625\paperwidth}
+
+\renewcommand{\bibname}{Referencias}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+
+%\footercontent{
+%	{\href{https://www.dcc.uchile.cl/}{\includegraphics[height=2.5\baselineskip]{dcc.pdf}\hspace{0cm}}} \hfill
+%	\raisebox{0.9\baselineskip}{CC7910 -- Investigación en Ciencia de la Computación} \hfill
+%	\raisebox{0.9\baselineskip}{QR ORCiD autor\hspace{0.5cm}}{ \href{https://orcid.org/0000-0002-8745-6638
+%		}{\includegraphics[height=2.5\baselineskip]{qrcode.eps}}}}
+
+% use this to include logos on the left and/or right side of the header:
+\logoright{\includegraphics[height=2.5cm]{logo.pdf}}
+% \logoleft{\includegraphics[height=3.5cm]{dcc.pdf}}
+
+\footercontent{
+	\href{https://www.example.com}{https://www.example.com} \hfill
+	ABC Conference 2025, New York --- XYZ-1234 \hfill
+	\href{mailto:alyssa.p.hacker@example.com}{alyssa.p.hacker@example.com}}
 
 % INICIO DE LAS PÁGINAS
 \begin{document}

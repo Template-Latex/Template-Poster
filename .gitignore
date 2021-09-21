@@ -13,6 +13,8 @@
 *.equ
 *(busy)*
 *._**
+*.nav
+*.snm
 
 # Releases
 *.zip
