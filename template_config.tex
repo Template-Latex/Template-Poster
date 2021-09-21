@@ -15,7 +15,7 @@
 \def\documentinterline {1}         % Interlineado del documento [factor]
 \def\documentparindent {0}         % Tamaño del indentado de párrafos [pt]
 \def\documentparskip {0}           % Tamaño adicional entre párrafos (+/-) [pt]
-\def\fontdocument {raleway}        % Tipografía base, ver soportadas en manual
+\def\fontdocument {ralewaylight}   % Tipografía base, ver soportadas en manual
 \def\fonttypewriter {tmodern}      % Tipografía de \texttt, ver manual
 \def\fonturl {same}                % Tipo de fuente url {tt,sf,rm,same}
 \def\frametextjustified {true}     % Justifica todos los párrafos de los frames
@@ -27,16 +27,16 @@
 
 % CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
 \def\captionalignment {justified}  % Posición {centered,justified,left,right}
-\def\captioncolor {black}          % Color nombre objeto (código,figura,tabla)
-\def\captionfontsize{footnotesize} % Tamaño de fuente de los caption
+\def\captioncolor {mitred}          % Color nombre objeto (código,figura,tabla)
+\def\captionfontsize{small}        % Tamaño de fuente de los caption
 \def\captionlabelformat {simple}   % Formato leyenda {empty,simple,parens}
 \def\captionlabelsep {colon}       % Sep. {none,colon,period,space,quad,newline}
 \def\captionlessmarginimage {0.1}  % Margen sup/inf de figura sin leyenda [cm]
 \def\captionlrmargin {0}           % Márgenes izq/der de la leyenda [cm]
 \def\captionlrmarginmc {0}         % Margen izq/der leyenda dentro de cols. [cm]
 \def\captionmarginimage {0}        % Margen vertical entre caption e imagen [cm]
-\def\captionmarginimages {-0.04}   % Margen vertical entre caption e images [cm]
-\def\captionmarginimagesmc {-0.04} % Margen vert. entre caption e imagesmc [cm]
+\def\captionmarginimages {0}   % Margen vertical entre caption e images [cm]
+\def\captionmarginimagesmc {0} % Margen vert. entre caption e imagesmc [cm]
 \def\captionmarginmultimg {0}      % Margen izq/der leyendas múltiple img [cm]
 \def\captionnumcode {arabic}       % N° código {arabic,alph,Alph,roman,Roman}
 \def\captionnumequation {arabic}   % N° ecuac. {arabic,alph,Alph,roman,Roman}
@@ -45,9 +45,9 @@
 \def\captionnumsubtable {alph}     % N° subtabla {arabic,alph,Alph,roman,Roman}
 \def\captionnumtable {arabic}      % N° tabla {arabic,alph,Alph,roman,Roman}
 \def\captionsubchar {.}            % Caracter entre N° objeto - subfigura/tabla
-\def\captiontbmarginfigure {9.35}  % Margen sup/inf de leyenda en figuras [pt]
+\def\captiontbmarginfigure {20}  % Margen sup/inf de leyenda en figuras [pt]
 \def\captiontbmargintable {7}      % Margen sup/inf de la leyenda en tablas [pt]
-\def\captiontextbold {true}        % Etiqueta (código,figura,tabla) en negrita
+\def\captiontextbold {false}        % Etiqueta (código,figura,tabla) en negrita
 \def\captiontextcolor {black}      % Color de la leyenda
 \def\captiontextsubnumbold {true}  % N° subfigura/subtabla en negrita
 \def\codecaptiontop {true}         % Leyenda arriba del código fuente
@@ -76,7 +76,7 @@
 
 % ANEXO, CITAS, REFERENCIAS
 \def\bibtexrefsep {6}              % Separación entre refs. {bibtex} [pt]
-\def\bibtexstyle {apalike}         % Formato refs. bibtex {apa,ieeetr,etc...}
+\def\bibtexstyle {ieeetr}          % Formato refs. bibtex {apa,ieeetr,etc...}
 \def\stylecitereferences {bibtex}  % Estilo cita/ref {bibtex,custom}
 
 % CONFIGURACIONES DE OBJETOS
@@ -118,14 +118,14 @@
 \def\sitemizeiii {\iitemcirc}      % Estilo itemize nivel 3
 \def\sitemizeiv {\iitembsquare}    % Estilo itemize nivel 4
 \def\sourcecodefontf {\ttfamily}   % Tipo de letra código fuente
-\def\sourcecodefonts{\footnotesize}% Tamaño letra código fuente
+\def\sourcecodefonts{\normalsize}% Tamaño letra código fuente
 \def\sourcecodeilfontf {\ttfamily} % Tipo de letra código fuente inline
 \def\sourcecodeilfonts {\small}    % Tamaño letra código fuente inline
 \def\sourcecodenumbersep {3}       % Separación entre número línea y código [pt]
 \def\sourcecodetabsize {3}         % Tamaño tabulación código fuente
 \def\tabledefaultplacement {H}     % Posición por defecto de las tablas
 \def\tablenotesameline {true}      % Notas en tablas en una sola línea
-\def\tablenotesfontsize {\small}   % Tamaño de fuente de las notas en tablas
+\def\tablenotesfontsize {\scriptsize}   % Tamaño de fuente de las notas en tablas
 \def\tablepaddingh {0.75}          % Espaciado horizontal de celda de las tablas
 \def\tablepaddingv {1.15}          % Espaciado vertical de celda de las tablas
 \def\tikzdefaultplacement {H}      % Posición por defecto de las figuras tikz
@@ -180,65 +180,14 @@
 % https://latex.ppizarror.com/doc/beameruserguide.pdf
 \mode<presentation> {
 	
-	% Colors from http://web.mit.edu/graphicidentity/colors.html
-	\definecolor{mitred}{cmyk}{0.24, 1.0, 0.78, 0.17} % #a1002f
-	\definecolor{mitdarkgray}{cmyk}{0.48, 0.39, 0.39, 0.04}
-	\definecolor{mitlightgray}{cmyk}{0.24, 0.20, 0.20, 0.0} % #F0F0F0
-	
-	% Extra colors
-	\definecolor{lightgray}{RGB}{240, 240, 240}
-	
-	% ====================
-	% Theme
-	% ====================
-	
-	% Basic colors
-	\setbeamercolor{palette primary}{fg=black,bg=white}
-	\setbeamercolor{palette secondary}{fg=black,bg=white}
-	\setbeamercolor{palette tertiary}{bg=black,fg=white}
-	\setbeamercolor{palette quaternary}{fg=black,bg=white}
-	\setbeamercolor{structure}{fg=mitred}
-	
-	% Headline
-	\setbeamercolor{headline}{fg=black,bg=lightgray}
-	
-	% Block
-	\setbeamercolor{block title}{fg=mitred,bg=white}
-	\setbeamercolor{block separator}{bg=black}
-	\setbeamercolor{block body}{fg=black,bg=white}
-	
-	% Alert Block
-	\setbeamercolor{block alerted title}{fg=mitred,bg=lightgray}
-	\setbeamercolor{block alerted separator}{bg=black}
-	\setbeamercolor{block alerted body}{fg=black,bg=lightgray}
-	
-	% Alert Block
-	\setbeamercolor{block example body}{fg=black,bg=lightgray}
-	
-	% Heading
-	\setbeamercolor{heading}{fg=black}
-	
-	% Itemize
-	\setbeamercolor{item}{fg=mitred}
-	
-	% Bibliography
-	\setbeamercolor{bibliography item}{fg=black}
-	\setbeamercolor{bibliography entry author}{fg=black}
-	\setbeamercolor{bibliography entry title}{fg=black}
-	\setbeamercolor{bibliography entry location}{fg=black}
-	\setbeamercolor{bibliography entry note}{fg=black}
-	
-
 	% IDIOMA
 	\uselanguage{spanish}
 	\languagepath{spanish}
-
+	
 	% CONFIGURACIONES GENERALES
 	\def\itemizedeleteleftmargin {true}
-	\def\tabularframeopacity {0.4}
-	\def\tabularframepaddingleft {0.2}
-	\def\tabularframepaddingright {0.2}
-	\def\tabularframepaddingtop {0.15}
+	\def\posterheight {83}
+	\def\posterwidth {66}
 	
 	% CONFIGURA LOS BLOQUES, VALORES EN [EM]
 	\def\blockmarginbottom {1}
@@ -246,5 +195,59 @@
 	\def\blockpaddingleft {0.6}
 	\def\blockpaddingright {0.6}
 	\def\blockpaddingtop {0.75}
+	
+	% CONFIGURACIÓN DE COLORES Y FUENTES
+	% Básicos
+	\setbeamercolor{palette primary}{fg=black,bg=white}
+	\setbeamercolor{palette secondary}{fg=black,bg=white}
+	\setbeamercolor{palette tertiary}{bg=black,fg=white}
+	\setbeamercolor{palette quaternary}{fg=black,bg=white}
+	\setbeamercolor{structure}{fg=mitred}
+	
+	% Bibliografía
+	\setbeamercolor{bibliography item}{fg=black}
+	\setbeamercolor{bibliography entry author}{fg=black}
+	\setbeamercolor{bibliography entry title}{fg=black}
+	\setbeamercolor{bibliography entry location}{fg=black}
+	\setbeamercolor{bibliography entry note}{fg=black}
+	\setbeamertemplate{bibliography item}[text]
+	
+	% Bloque
+	\setbeamercolor{block title}{fg=mitred,bg=white}
+	\setbeamercolor{block separator}{bg=black}
+	\setbeamercolor{block body}{fg=black,bg=white}
+	\setbeamerfont{block title}{size=\Large,series=\bfseries}
+	
+	% Bloque de alerta
+	\setbeamercolor{block alerted title}{fg=mitred,bg=lightgray}
+	\setbeamercolor{block alerted separator}{bg=black}
+	\setbeamercolor{block alerted body}{fg=black,bg=lightgray}
+	\setbeamercolor{block example body}{fg=black,bg=lightgray}
+	
+	% Cabecera y Títulos
+	\setbeamercolor{headline}{fg=black,bg=lightgray}
+	\setbeamercolor{heading}{fg=black}
+	\setbeamerfont{headline}{}
+	\setbeamerfont{headline title}{size=\huge,series=\bfseries}
+	\setbeamerfont{headline author}{size=\Large}
+	\setbeamerfont{headline institute}{size=\small}
+	\setbeamerfont{heading}{series=\bfseries}
+	
+	% Ítems
+	\setbeamercolor{item}{fg=mitred}
+	\setbeamertemplate{itemize item}{\raise0.5ex \hbox{\vrule width 0.5ex height 0.5ex}}
+	\setbeamertemplate{itemize subitem}{\raise0.3ex \hbox{\vrule width 0.5ex height 0.5ex}}
+	\setbeamertemplate{itemize subsubitem}{\raise0.2ex \hbox{\vrule width 0.5ex height 0.5ex}}
+	
+	% Enumerate
+	\setbeamertemplate{enumerate item}{\insertenumlabel.}
+	\setbeamertemplate{enumerate subitem}{\insertsubenumlabel.}
+	\setbeamertemplate{enumerate subsubitem}{\insertsubsubenumlabel.}
+
+	% Navegación
+	\beamertemplatenavigationsymbolsempty
+
+	% Pie de página
+	\setbeamerfont{footline}{size=\normalsize}
 	
 }

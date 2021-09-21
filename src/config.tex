@@ -11,11 +11,11 @@
 
 % CONFIGURACIONES GENERALES
 \def\compilertype {pdf2latex}      % Compilador {pdf2latex,xelatex,lualatex}
-\def\documentfontsize {10}         % Tamaño de la fuente del documento [pt]
+\def\documentfontsize {23}         % Tamaño de la fuente del documento [pt]
 \def\documentinterline {1}         % Interlineado del documento [factor]
 \def\documentparindent {0}         % Tamaño del indentado de párrafos [pt]
 \def\documentparskip {0}           % Tamaño adicional entre párrafos (+/-) [pt]
-\def\fontdocument {lmodern}        % Tipografía base, ver soportadas en manual
+\def\fontdocument {ralewaylight}   % Tipografía base, ver soportadas en manual
 \def\fonttypewriter {tmodern}      % Tipografía de \texttt, ver manual
 \def\fonturl {same}                % Tipo de fuente url {tt,sf,rm,same}
 \def\frametextjustified {true}     % Justifica todos los párrafos de los frames
@@ -179,94 +179,15 @@
 % CONFIGURA BEAMER
 % https://latex.ppizarror.com/doc/beameruserguide.pdf
 \mode<presentation> {
-
-	% LISTA DE TEMAS GLOBALES, DESCONFIGURAR PARA APLICAR
-	% https://latex.ppizarror.com/beamer_temas.html
-
-	% \usetheme{AnnArbor}
-	% \usetheme{Antibes}
-	% \usetheme{Bergen}
-	% \usetheme{Berkeley}
-	% \usetheme{Berlin}
-	% \usetheme{Boadilla}
-	% \usetheme{boxes}
-	% \usetheme{CambridgeUS}
-	% \usetheme{Copenhagen}
-	% \usetheme{Darmstadt}
-	% \usetheme{default}
-	% \usetheme{Dresden}
-	% \usetheme{Frankfurt}
-	% \usetheme{Goettingen}
-	% \usetheme{Hannover}
-	% \usetheme{Ilmenau}
-	% \usetheme{JuanLesPins}
-	% \usetheme{Luebeck}
-	\usetheme{Madrid}
-	% \usetheme{Malmoe}
-	% \usetheme{Marburg}
-	% \usetheme{Montpellier}
-	% \usetheme{PaloAlto}
-	% \usetheme{Pittsburgh}
-	% \usetheme{Rochester}
-	% \usetheme{Singapore}
-	% \usetheme{Szeged}
-	% \usetheme{Warsaw}
 	
-	% TEMAS TIPO <INNER>, USAR SÓLO SI NO SE APLICA EL GLOBAL
-	% https://latex.ppizarror.com/doc/Beamer-appearance-cheat-sheet.pdf
-	
-	% \useinnertheme{default}
-	% \useinnertheme{circles}
-	%\useinnertheme{rectangles}
-	% \useinnertheme{rounded}
-	% \useinnertheme{inmargin}
-	
-	% TEMAS TIPO <OUTER>, USAR SÓLO SI NO SE APLICA EL GLOBAL
-	
-	% \useoutertheme{default}
-	%\useoutertheme{infolines}
-	% \useoutertheme{miniframes}
-	% \useoutertheme{smoothbars}
-	% \useoutertheme{sidebar}
-	% \useoutertheme{split}
-	% \useoutertheme{shadow}
-	% \useoutertheme{tree}
-	% \useoutertheme{smoothtree}
-	
-	% COLORES DE LA SLIDE, USAR SÓLO SI NO SE APLICA EL GLOBAL
-	% https://latex.ppizarror.com/beamer_colores.html
-	
-	% \usecolortheme{default}
-	%\usecolortheme[named=cardinalred]{structure}
-	% \usecolortheme{sidebartab}
-
-	% \usecolortheme{albatross}
-	% \usecolortheme{beaver}
-	% \usecolortheme{beetle}
-	% \usecolortheme{crane}
-	% \usecolortheme{dolphin}
-	% \usecolortheme{dove}
-	% \usecolortheme{fly}
-	% \usecolortheme{lily}
-	% \usecolortheme{monarca}
-	%\usecolortheme{orchid}
-	% \usecolortheme{rose}
-	% \usecolortheme{seagull}
-	% \usecolortheme{seahorse}
-	% \usecolortheme{spruce}
-	%\usecolortheme{whale}
-	% \usecolortheme{wolverine}
-
 	% IDIOMA
 	\uselanguage{spanish}
 	\languagepath{spanish}
-
+	
 	% CONFIGURACIONES GENERALES
 	\def\itemizedeleteleftmargin {true}
-	\def\tabularframeopacity {0.4}
-	\def\tabularframepaddingleft {0.2}
-	\def\tabularframepaddingright {0.2}
-	\def\tabularframepaddingtop {0.15}
+	\def\posterheight {83}
+	\def\posterwidth {66}
 	
 	% CONFIGURA LOS BLOQUES, VALORES EN [EM]
 	\def\blockmarginbottom {1}
@@ -275,20 +196,63 @@
 	\def\blockpaddingright {0.6}
 	\def\blockpaddingtop {0.75}
 	
-	% PARA RESTABLECER EL HEADLINE, COMENTAR
-	\setbeamertemplate{headline}{}
+	% CONFIGURACIÓN DE COLORES Y FUENTES
+	% Básicos
+	\setbeamercolor{palette primary}{fg=black,bg=white}
+	\setbeamercolor{palette secondary}{fg=black,bg=white}
+	\setbeamercolor{palette tertiary}{bg=black,fg=white}
+	\setbeamercolor{palette quaternary}{fg=black,bg=white}
+	\setbeamercolor{structure}{fg=mitred}
 	
-	% ELEMENTOS CON \pause o \onslide ESTÁN OCULTOS
-	\setbeamercovered{invisible}
-	% \setbeamercovered{transparent}
+	% Bibliografía
+	\setbeamercolor{bibliography item}{fg=black}
+	\setbeamercolor{bibliography entry author}{fg=black}
+	\setbeamercolor{bibliography entry title}{fg=black}
+	\setbeamercolor{bibliography entry location}{fg=black}
+	\setbeamercolor{bibliography entry note}{fg=black}
+	\setbeamertemplate{bibliography item}[text]
 	
-	% PARA ELIMINAR EL FOOTER, DESCOMENTAR
-	% \setbeamertemplate{footline}{}
+	% Bloque
+	\setbeamercolor{block title}{fg=mitred,bg=white}
+	\setbeamercolor{block separator}{bg=black}
+	\setbeamercolor{block body}{fg=black,bg=white}
+	\setbeamerfont{block title}{size=\large,series=\bfseries}
 	
-	% REEMPLAZAR EL FOOTER POR EL N° DE PÁGINA
-	% \setbeamertemplate{footline}[page number]
+	% Bloque de alerta
+	\setbeamercolor{block alerted title}{fg=mitred,bg=lightgray}
+	\setbeamercolor{block alerted separator}{bg=black}
+	\setbeamercolor{block alerted body}{fg=black,bg=lightgray}
+	\setbeamercolor{block example body}{fg=black,bg=lightgray}
 	
-	% PARA ACTIVAR LOS SÍMBOLOS DE NAVEGACIÓN, COMENTAR
-	\setbeamertemplate{navigation symbols}{}
+	% Cabecera y Títulos
+	\setbeamercolor{headline}{fg=black,bg=lightgray}
+	\setbeamercolor{heading}{fg=black}
+	\setbeamerfont{headline}{}
+	\setbeamerfont{headline title}{size=\huge,series=\bfseries}
+	\setbeamerfont{headline author}{size=\Large}
+	\setbeamerfont{headline institute}{size=\normalsize}
+	\setbeamerfont{heading}{series=\bfseries}
+	
+	% Caption
+	\setbeamerfont{caption}{size=\small}
+	\setbeamertemplate{caption}[numbered]
+	\setbeamertemplate{caption label separator}[period]
+	
+	% Ítems
+	\setbeamercolor{item}{fg=mitred}
+	\setbeamertemplate{itemize item}{\raise0.5ex \hbox{\vrule width 0.5ex height 0.5ex}}
+	\setbeamertemplate{itemize subitem}{\raise0.3ex \hbox{\vrule width 0.5ex height 0.5ex}}
+	\setbeamertemplate{itemize subsubitem}{\raise0.2ex \hbox{\vrule width 0.5ex height 0.5ex}}
+	
+	% Enumerate
+	\setbeamertemplate{enumerate item}{\insertenumlabel.}
+	\setbeamertemplate{enumerate subitem}{\insertsubenumlabel.}
+	\setbeamertemplate{enumerate subsubitem}{\insertsubsubenumlabel.}
+
+	% Navegación
+	\beamertemplatenavigationsymbolsempty
+
+	% Pie de página
+	\setbeamerfont{footline}{size=\normalsize}
 	
 }
