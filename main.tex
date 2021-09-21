@@ -48,16 +48,17 @@
  
 % OTROS
 \usepackage{exscale}
+\changefontsizes{\documentfontsize pt}
 
 
-\setbeamerfont{headline}{family=\normalfont}
+\setbeamerfont{headline}{}
 \setbeamerfont{headline title}{size=\huge,series=\bfseries}
 \setbeamerfont{headline author}{size=\Large}
 \setbeamerfont{headline institute}{size=\normalsize}
-\setbeamerfont{block title}{family=\normalfont,size=\large,series=\bfseries}
-\setbeamerfont{heading}{family=\normalfont,series=\bfseries}
+\setbeamerfont{block title}{size=\large,series=\bfseries}
+\setbeamerfont{heading}{series=\bfseries}
 \setbeamerfont{caption}{size=\small}
-\setbeamerfont{footline}{family=\normalfont,size=\normalsize}
+\setbeamerfont{footline}{size=\normalsize}
 
 
 
@@ -123,7 +124,7 @@
 \newlength{\logorightwidth}
 \setlength{\logorightwidth}{0cm}
 \newlength{\maxlogowidth}  % space on both sides set to maxlogowidth to keep title centered
-\setlength{\maxlogowidth}{3cm}
+\setlength{\maxlogowidth}{0cm}
 
 \newcommand{\logoright}[1]{
 	\newcommand{\insertlogoright}{#1}
@@ -145,10 +146,11 @@
 		\begin{columns}
 			\begin{column}{\maxlogowidth}
 				\vskip5ex
+				\centering
 				\ifdefined\insertlogoleft
 				\vspace*{\fill}
-				\hspace{10ex}
-				\raggedright
+				\hspace*{0ex}
+				% \raggedright
 				\insertlogoleft
 				\vspace*{\fill}
 				\else\fi
@@ -164,10 +166,11 @@
 				{\usebeamerfont{headline institute}\usebeamercolor[fg]{headline institute}\insertinstitute\\[1ex]}
 			\end{column}
 			\begin{column}{\maxlogowidth}
+				\centering
 				\vskip5ex
 				\ifdefined\insertlogoright
 				\vspace*{\fill}
-				\raggedleft
+				% \raggedleft
 				\insertlogoright
 				\hspace{10ex}
 				\vspace*{\fill}
@@ -186,7 +189,7 @@
 {
 	\begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block title}
 		\vskip0pt
-		\usebeamerfont{block title}\insertblocktitle
+		\usebeamerfont*{block title}\insertblocktitle
 		\vskip-1.25ex
 		\begin{beamercolorbox}[colsep=0.025ex]{block separator}\end{beamercolorbox}
 	\end{beamercolorbox}
@@ -280,8 +283,8 @@
 %		}{\includegraphics[height=2.5\baselineskip]{qrcode.eps}}}}
 
 % use this to include logos on the left and/or right side of the header:
-\logoright{\includegraphics[height=2.5cm]{logo.pdf}}
-% \logoleft{\includegraphics[height=3.5cm]{dcc.pdf}}
+% \logoright{\includegraphics[height=3.5cm]{logo2.pdf}}
+% \logoleft{\includegraphics[height=3.5cm]{logo2.pdf}}
 
 \footercontent{
 	\href{https://www.example.com}{https://www.example.com} \hfill

@@ -110,7 +110,6 @@
 % Tamaño de la fuente del documento
 \usepackage{scrextend}
 \usepackage{anyfontsize}
-\changefontsizes{\documentfontsize pt}
 
 % Evita error "Too many alphabets used in version normal"
 \newcommand\hmmax {0}
@@ -635,7 +634,7 @@
 	\usepackage[sfdefault]{quattrocento}
 }{
 \ifthenelse{\equal{\fontdocument}{raleway}}{
-	\usepackage[default]{raleway}
+	\usepackage[light]{raleway}
 }{
 \ifthenelse{\equal{\fontdocument}{roboto}}{
 	\usepackage[sfdefault]{roboto}
