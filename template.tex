@@ -5392,14 +5392,6 @@
 \makeatother
 
 % -----------------------------------------------------------------------------
-% Corrige espaciamiento de itemize
-% -----------------------------------------------------------------------------
-\ifthenelse{\equal{\itemizedeleteleftmargin}{true}}{
-	\setlist[itemize]{leftmargin=*}
-	\setlist[enumerate]{leftmargin=*}
-}{}
-
-% -----------------------------------------------------------------------------
 % Configura los bloques
 % -----------------------------------------------------------------------------
 \addtobeamertemplate{block begin}{
@@ -5463,8 +5455,8 @@
 % (N+1)*\sepwidth + N*\colwidth = \paperwidth
 \newlength{\sepwidth}
 \newlength{\colwidth}
-\setlength{\sepwidth}{0.025\paperwidth}
-\setlength{\colwidth}{0.4625\paperwidth}
+\setlength{\sepwidth}{\colseparation}
+\setlength{\colwidth}{\dimexpr(\paperwidth -\colnumbers\sepwidth -\sepwidth)/\colnumbers}
 
 % -----------------------------------------------------------------------------
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
