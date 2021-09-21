@@ -1,0 +1,294 @@
+% Template:     Poster LaTeX
+% Documento:    Configuraciones del template
+% Versión:      0.0.1 (21/09/2021)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/poster]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% CONFIGURACIONES GENERALES
+\def\compilertype {pdf2latex}      % Compilador {pdf2latex,xelatex,lualatex}
+\def\documentfontsize {10}         % Tamaño de la fuente del documento [pt]
+\def\documentinterline {1}         % Interlineado del documento [factor]
+\def\documentparindent {0}         % Tamaño del indentado de párrafos [pt]
+\def\documentparskip {0}           % Tamaño adicional entre párrafos (+/-) [pt]
+\def\fontdocument {lmodern}        % Tipografía base, ver soportadas en manual
+\def\fonttypewriter {tmodern}      % Tipografía de \texttt, ver manual
+\def\fonturl {same}                % Tipo de fuente url {tt,sf,rm,same}
+\def\frametextjustified {true}     % Justifica todos los párrafos de los frames
+\def\graphicxdraft {false}         % En true no carga las imágenes (modo draft)
+\def\pointdecimal {true}           % N° decimales con punto en vez de coma
+\def\showlayoutlines {false}       % Muestra el layout de la página
+\def\useenglishbabel {false}       % Inglés, desactivar para otros idiomas
+\def\usespanishbabel {true}        % Español, desactivar para otros idiomas
+
+% CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
+\def\captionalignment {justified}  % Posición {centered,justified,left,right}
+\def\captioncolor {black}          % Color nombre objeto (código,figura,tabla)
+\def\captionfontsize{footnotesize} % Tamaño de fuente de los caption
+\def\captionlabelformat {simple}   % Formato leyenda {empty,simple,parens}
+\def\captionlabelsep {colon}       % Sep. {none,colon,period,space,quad,newline}
+\def\captionlessmarginimage {0.1}  % Margen sup/inf de figura sin leyenda [cm]
+\def\captionlrmargin {0}           % Márgenes izq/der de la leyenda [cm]
+\def\captionlrmarginmc {0}         % Margen izq/der leyenda dentro de cols. [cm]
+\def\captionmarginimage {0}        % Margen vertical entre caption e imagen [cm]
+\def\captionmarginimages {-0.04}   % Margen vertical entre caption e images [cm]
+\def\captionmarginimagesmc {-0.04} % Margen vert. entre caption e imagesmc [cm]
+\def\captionmarginmultimg {0}      % Margen izq/der leyendas múltiple img [cm]
+\def\captionnumcode {arabic}       % N° código {arabic,alph,Alph,roman,Roman}
+\def\captionnumequation {arabic}   % N° ecuac. {arabic,alph,Alph,roman,Roman}
+\def\captionnumfigure {arabic}     % N° figuras {arabic,alph,Alph,roman,Roman}
+\def\captionnumsubfigure {alph}    % N° subfigs. {arabic,alph,Alph,roman,Roman}
+\def\captionnumsubtable {alph}     % N° subtabla {arabic,alph,Alph,roman,Roman}
+\def\captionnumtable {arabic}      % N° tabla {arabic,alph,Alph,roman,Roman}
+\def\captionsubchar {.}            % Caracter entre N° objeto - subfigura/tabla
+\def\captiontbmarginfigure {9.35}  % Margen sup/inf de leyenda en figuras [pt]
+\def\captiontbmargintable {7}      % Margen sup/inf de la leyenda en tablas [pt]
+\def\captiontextbold {true}        % Etiqueta (código,figura,tabla) en negrita
+\def\captiontextcolor {black}      % Color de la leyenda
+\def\captiontextsubnumbold {true}  % N° subfigura/subtabla en negrita
+\def\codecaptiontop {true}         % Leyenda arriba del código fuente
+\def\equationcaptioncenter {true}  % Ecuaciones están centradas o justificadas
+\def\figurecaptiontop {false}      % Leyenda arriba de las imágenes
+\def\marginaligncaptbottom {0.1}   % Margen inferior caption en align [cm]
+\def\marginaligncapttop {-0.75}    % Margen superior caption en align [cm]
+\def\marginalignedcaptbottom {0.1} % Margen inferior caption en aligned [cm]
+\def\marginalignedcapttop {-0.75}  % Margen superior caption en aligned [cm]
+\def\margineqncaptionbottom {0}    % Margen inferior caption ecuación [cm]
+\def\margineqncaptiontop {-0.7}    % Margen superior caption ecuación [cm]
+\def\margingathercaptbottom {0.1}  % Margen inferior caption en gather [cm]
+\def\margingathercapttop {-0.9}    % Margen superior caption en gather [cm]
+\def\margingatheredcaptbottom{0.1} % Margen inferior caption en gathered [cm]
+\def\margingatheredcapttop {-0.7}  % Margen superior caption en gathered [cm]
+\def\sectioncaptiondelimiter {.}   % Caracter delimitador n° objeto y sección
+\def\showsectioncaptioncode {none} % N° sec código {none,chap,(s/ss/sss/ssss)ec}
+\def\showsectioncaptioneqn {none}  % N° sec ecuac. {none,chap,(s/ss/sss/ssss)ec}
+\def\showsectioncaptionfig {none}  % N° sec figs. {none,chap,(s/ss/sss/ssss)ec}
+\def\showsectioncaptionmat {none}  % N° matemático {none,chap,(s/ss/sss/ssss)ec}
+\def\showsectioncaptiontab {none}  % N° sec tablas {none,chap,(s/ss/sss/ssss)ec}
+\def\subcaptionfsize{footnotesize} % Tamaño de la fuente de los subcaption
+\def\subcaptionlabelformat{parens} % Formato leyenda sub. {empty,simple,parens}
+\def\subcaptionlabelsep {space}    % Sep. {none,colon,period,space,quad,newline}
+\def\tablecaptiontop {true}        % Leyenda arriba de las tablas
+
+% ANEXO, CITAS, REFERENCIAS
+\def\bibtexrefsep {6}              % Separación entre refs. {bibtex} [pt]
+\def\bibtexstyle {apalike}         % Formato refs. bibtex {apa,ieeetr,etc...}
+\def\stylecitereferences {bibtex}  % Estilo cita/ref {bibtex,custom}
+
+% CONFIGURACIONES DE OBJETOS
+\def\columnsepwidth {2.1}          % Separación entre columnas [em]
+\def\defaultimagefolder {img/}     % Carpeta raíz de las imágenes
+\def\equationleftalign {false}     % Ecuaciones alineadas a la izquierda
+\def\equationrestart {none}        % Reinicio n° {none,chap,(s/ss/sss/ssss)ec}
+\def\footnotelmargin {10}          % Margen entre footnote y el número [pt]
+\def\footnoterestart {none}        % N° foot. {none,chap,page,(s/ss/sss/ssss)ec}
+\def\footnoterulefigure {false}    % Footnote en figuras tienen línea superior
+\def\footnoterulepage {false}      % Footnote en páginas tienen línea superior
+\def\footnoteruletable {false}     % Footnote en tablas tienen línea superior
+\def\footnotetwocolumn {false}     % Footnote en dos columnas
+\def\fpremovetopbottomcenter{true} % Elimina espacio vert. al centrar con b!,t!
+\def\imagedefaultplacement {H}     % Posición por defecto de las imágenes
+\def\marginalignbottom {-0.4}      % Margen inferior entorno align [cm]
+\def\marginalignedbottom {-0.2}    % Margen inferior entorno aligned [cm]
+\def\marginalignedtop {-0.4}       % Margen superior entorno aligned [cm]
+\def\marginaligntop {-0.4}         % Margen superior entorno align [cm]
+\def\marginequationbottom {-0.2}   % Margen inferior ecuaciones [cm]
+\def\marginequationtop {0}         % Margen superior ecuaciones [cm]
+\def\marginfloatimages {-13}       % Margen sup figs. insertimageleft/right [pt]
+\def\margingatherbottom {-0.2}     % Margen inferior entorno gather [cm]
+\def\margingatheredbottom {-0.1}   % Margen inferior entorno gathered [cm]
+\def\margingatheredtop {-0.4}      % Margen superior entorno gathered [cm]
+\def\margingathertop {-0.4}        % Margen superior entorno gather [cm]
+\def\marginimagebottom {-0.50}     % Margen inferior figura [cm]
+\def\marginimagemultbottom {-0.05} % Margen inferior imágenes múltiples [cm]
+\def\marginimagemultright {0.35}   % Margen derecho imágenes múltiples [cm]
+\def\marginimagemulttop {-0.3}     % Margen superior imágenes múltiples [cm]
+\def\marginimagetop {0}            % Margen superior figuras [cm]
+\def\numberedequation {true}       % Ecuaciones con \insert... numeradas
+\def\senumerti {\arabic{enumi}.}   % Estilo enumerate nivel 1
+\def\senumertii {\alph{enumii})}   % Estilo enumerate nivel 2
+\def\senumertiii{\roman{enumiii}.} % Estilo enumerate nivel 3
+\def\senumertiv {\Alph{enumiv})}   % Estilo enumerate nivel 4
+\def\sitemizei {\iitembcirc}       % Estilo itemize nivel 1
+\def\sitemizeii {\iitemdash}       % Estilo itemize nivel 2
+\def\sitemizeiii {\iitemcirc}      % Estilo itemize nivel 3
+\def\sitemizeiv {\iitembsquare}    % Estilo itemize nivel 4
+\def\sourcecodefontf {\ttfamily}   % Tipo de letra código fuente
+\def\sourcecodefonts{\footnotesize}% Tamaño letra código fuente
+\def\sourcecodeilfontf {\ttfamily} % Tipo de letra código fuente inline
+\def\sourcecodeilfonts {\small}    % Tamaño letra código fuente inline
+\def\sourcecodenumbersep {3}       % Separación entre número línea y código [pt]
+\def\sourcecodetabsize {3}         % Tamaño tabulación código fuente
+\def\tabledefaultplacement {H}     % Posición por defecto de las tablas
+\def\tablenotesameline {true}      % Notas en tablas en una sola línea
+\def\tablenotesfontsize {\small}   % Tamaño de fuente de las notas en tablas
+\def\tablepaddingh {0.75}          % Espaciado horizontal de celda de las tablas
+\def\tablepaddingv {1.15}          % Espaciado vertical de celda de las tablas
+\def\tikzdefaultplacement {H}      % Posición por defecto de las figuras tikz
+
+% CONFIGURACIÓN DE LOS COLORES DEL DOCUMENTO
+\def\highlightcolor {yellow}       % Color del subrayado con \hl
+\def\linenumbercolor {gray}        % Color del n° de línea (\showlinenumbers)
+\def\linkcolor {black}             % Color de los links del documento
+\def\maintextcolor {black}         % Color principal del texto
+\def\numcitecolor {black}          % Color del n° de las referencias o citas
+\def\showborderonlinks {false}     % Color de un link por un recuadro de color
+\def\sourcecodebgcolor {lgray}     % Color de fondo del código fuente
+\def\tablelinecolor {black}        % Color de las líneas de las tablas
+\def\tablerowfirstcolor {none}     % Primer color de celda de las tablas
+\def\tablerowsecondcolor {gray!20} % Segundo color de celda de las tablas
+\def\urlcolor {magenta}            % Color de los enlaces web (\href,\url)
+
+% OPCIONES DEL PDF COMPILADO
+\def\cfgbookmarksopenlevel {1}     % Nivel marcadores en pdf (1:secciones)
+\def\cfgpdfbookmarkopen {true}     % Expande marcadores del nivel configurado
+\def\cfgpdfcenterwindow {true}     % Centra ventana del lector al abrir el pdf
+\def\cfgpdfcopyright {}            % Establece el copyright del documento
+\def\cfgpdfdisplaydoctitle {true}  % Muestra título del informe en visor
+\def\cfgpdffitwindow {true}        % Ajusta la ventana del lector tamaño pdf
+\def\cfgpdfkeywords {}             % Palabras clave del pdf
+\def\cfgpdflayout {OneColumn}      % Modo de página {OneColumn,SinglePage}
+\def\cfgpdfmenubar {true}          % Muestra el menú del lector
+\def\cfgpdfpageview {FitBV}        % {Fit,FitH,FitV,FitR,FitB,FitBH,FitBV}
+\def\cfgpdfsecnumbookmarks {true}  % Número de la sec. en marcadores del pdf
+\def\cfgpdftoolbar {true}          % Muestra barra de herramientas lector pdf
+\def\cfgshowbookmarkmenu {false}   % Muestra menú marcadores al abrir el pdf
+\def\indexdepth {4}                % Profundidad de los marcadores
+\def\pdfcompilecompression {9}     % Factor de compresión del pdf (0-9)
+\def\pdfcompileobjcompression {2}  % Nivel compresión objetos del pdf (0-3)
+\def\usepdfmetadata {true}         % Añade metadatos al pdf compilado
+
+% NOMBRE DE OBJETOS
+\def\namemathcol {Corolario}       % Nombre de los colorarios
+\def\namemathdefn {Definición}     % Nombre de las definiciones
+\def\namemathej {Ejemplo}          % Nombre de los ejemplos
+\def\namemathlem {Lema}            % Nombre de los lemas
+\def\namemathobs {Observación}     % Nombre de las observaciones
+\def\namemathprp {Proposición}     % Nombre de las proposiciones
+\def\namemaththeorem {Teorema}     % Nombre de los teoremas
+\def\namereferences {Referencias}  % Nombre de la sección de referencias
+\def\nomltappendixsection {Anexo}  % Etiqueta sección en anexo/apéndices
+\def\nomltwfigure {Figura}         % Etiqueta leyenda de las figuras
+\def\nomltwsrc {Código}            % Etiqueta leyenda del código fuente
+\def\nomltwtable {Tabla}           % Etiqueta leyenda de las tablas
+
+% CONFIGURA BEAMER
+% https://latex.ppizarror.com/doc/beameruserguide.pdf
+\mode<presentation> {
+
+	% LISTA DE TEMAS GLOBALES, DESCONFIGURAR PARA APLICAR
+	% https://latex.ppizarror.com/beamer_temas.html
+
+	% \usetheme{AnnArbor}
+	% \usetheme{Antibes}
+	% \usetheme{Bergen}
+	% \usetheme{Berkeley}
+	% \usetheme{Berlin}
+	% \usetheme{Boadilla}
+	% \usetheme{boxes}
+	% \usetheme{CambridgeUS}
+	% \usetheme{Copenhagen}
+	% \usetheme{Darmstadt}
+	% \usetheme{default}
+	% \usetheme{Dresden}
+	% \usetheme{Frankfurt}
+	% \usetheme{Goettingen}
+	% \usetheme{Hannover}
+	% \usetheme{Ilmenau}
+	% \usetheme{JuanLesPins}
+	% \usetheme{Luebeck}
+	\usetheme{Madrid}
+	% \usetheme{Malmoe}
+	% \usetheme{Marburg}
+	% \usetheme{Montpellier}
+	% \usetheme{PaloAlto}
+	% \usetheme{Pittsburgh}
+	% \usetheme{Rochester}
+	% \usetheme{Singapore}
+	% \usetheme{Szeged}
+	% \usetheme{Warsaw}
+	
+	% TEMAS TIPO <INNER>, USAR SÓLO SI NO SE APLICA EL GLOBAL
+	% https://latex.ppizarror.com/doc/Beamer-appearance-cheat-sheet.pdf
+	
+	% \useinnertheme{default}
+	% \useinnertheme{circles}
+	%\useinnertheme{rectangles}
+	% \useinnertheme{rounded}
+	% \useinnertheme{inmargin}
+	
+	% TEMAS TIPO <OUTER>, USAR SÓLO SI NO SE APLICA EL GLOBAL
+	
+	% \useoutertheme{default}
+	%\useoutertheme{infolines}
+	% \useoutertheme{miniframes}
+	% \useoutertheme{smoothbars}
+	% \useoutertheme{sidebar}
+	% \useoutertheme{split}
+	% \useoutertheme{shadow}
+	% \useoutertheme{tree}
+	% \useoutertheme{smoothtree}
+	
+	% COLORES DE LA SLIDE, USAR SÓLO SI NO SE APLICA EL GLOBAL
+	% https://latex.ppizarror.com/beamer_colores.html
+	
+	% \usecolortheme{default}
+	%\usecolortheme[named=cardinalred]{structure}
+	% \usecolortheme{sidebartab}
+
+	% \usecolortheme{albatross}
+	% \usecolortheme{beaver}
+	% \usecolortheme{beetle}
+	% \usecolortheme{crane}
+	% \usecolortheme{dolphin}
+	% \usecolortheme{dove}
+	% \usecolortheme{fly}
+	% \usecolortheme{lily}
+	% \usecolortheme{monarca}
+	%\usecolortheme{orchid}
+	% \usecolortheme{rose}
+	% \usecolortheme{seagull}
+	% \usecolortheme{seahorse}
+	% \usecolortheme{spruce}
+	%\usecolortheme{whale}
+	% \usecolortheme{wolverine}
+
+	% IDIOMA
+	\uselanguage{spanish}
+	\languagepath{spanish}
+
+	% CONFIGURACIONES GENERALES
+	\def\itemizedeleteleftmargin {true}
+	\def\tabularframeopacity {0.4}
+	\def\tabularframepaddingleft {0.2}
+	\def\tabularframepaddingright {0.2}
+	\def\tabularframepaddingtop {0.15}
+	
+	% CONFIGURA LOS BLOQUES, VALORES EN [EM]
+	\def\blockmarginbottom {1}
+	\def\blockpaddingbottom {0.6}
+	\def\blockpaddingleft {0.6}
+	\def\blockpaddingright {0.6}
+	\def\blockpaddingtop {0.75}
+	
+	% PARA RESTABLECER EL HEADLINE, COMENTAR
+	\setbeamertemplate{headline}{}
+	
+	% ELEMENTOS CON \pause o \onslide ESTÁN OCULTOS
+	\setbeamercovered{invisible}
+	% \setbeamercovered{transparent}
+	
+	% PARA ELIMINAR EL FOOTER, DESCOMENTAR
+	% \setbeamertemplate{footline}{}
+	
+	% REEMPLAZAR EL FOOTER POR EL N° DE PÁGINA
+	% \setbeamertemplate{footline}[page number]
+	
+	% PARA ACTIVAR LOS SÍMBOLOS DE NAVEGACIÓN, COMENTAR
+	\setbeamertemplate{navigation symbols}{}
+	
+}

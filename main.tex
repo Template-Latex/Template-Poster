@@ -1,0 +1,68 @@
+% Template:     Poster LaTeX
+% Documento:    Archivo principal
+% Versión:      0.0.1 (21/09/2021)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/poster]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% CREACIÓN DEL DOCUMENTO
+\pdfminorversion=7
+\documentclass[
+	aspectratio=43, % 1610, 169, 149, 54, 43, 32
+	hyperref={pdfencoding=auto,psdextra},
+	xcolor={dvipsnames,table,usenames}
+]{beamer}
+
+% INFORMACIÓN DEL DOCUMENTO
+\def\documenttitle {Título de la presentación en portada}
+\def\documentsubtitle {Título de la presentación}
+\def\documentsubject {Tema a tratar}
+
+\def\documentauthor {Nombre del autor}
+\def\coursename {Curso}
+\def\coursecode {CO-1234}
+
+\def\universityname {Universidad de Chile}
+\def\universityfaculty {Facultad de Ciencias Físicas y Matemáticas}
+\def\universitydepartment {Departamento de la Universidad}
+\def\universitydepartmentimage {departamentos/fcfm}
+\def\universitylocation {Santiago de Chile}
+
+% CONFIGURACIÓN DATOS BEAMER
+\title[\documentsubtitle]{\documenttitle}
+\subtitle{\documentsubject}
+\author[\documentauthor]{
+	\documentauthor,
+	\footnotesize \href{mailto:pablo@ppizarror.com}{pablo@ppizarror.com}
+}
+\institute[UChile]{
+	\includegraphics[height=1.1cm]{\universitydepartmentimage} \\
+	\medskip
+	\universityname \\
+	\universityfaculty \\
+	\universitydepartment
+}
+\date[\today]{\footnotesize{\today}}
+
+% IMPORTACIÓN DEL TEMPLATE
+\input{template}
+
+% INICIO DE LAS PÁGINAS
+\begin{document}
+
+% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
+\templatePagecfg
+
+% CONFIGURACIONES FINALES
+\templateFinalcfg
+
+% ======================= INICIO DEL DOCUMENTO =======================
+
+\input{example} % Ejemplo, se puede borrar
+
+% FIN DEL DOCUMENTO
+\end{document}

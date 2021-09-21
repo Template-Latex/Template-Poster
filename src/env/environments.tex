@@ -1,0 +1,284 @@
+% Template:     Poster LaTeX
+% Documento:    Definición de entornos
+% Versión:      0.0.1 (21/09/2021)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/poster]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% Inicia código fuente con parámetros
+%	#1	Label (opcional)
+%	#2	Estilo de código
+%	#3	Parámetros
+%	#4	Caption
+\newcommand{\coreinitsourcecodep}[4]{
+	\emptyvarerr{\coreinitsourcecodep}{#2}{Estilo de codigo no definido}
+	\checkvalidsourcecodestyle{#2}
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\rightlinenumbers}{
+	}
+	\lstset{
+		backgroundcolor=\color{\sourcecodebgcolor}
+	}
+	\ifthenelse{\equal{\codecaptiontop}{true}}{
+		\ifx\hfuzz#4\hfuzz
+			\ifx\hfuzz#3\hfuzz
+				\lstset{
+					escapeinside={(*@}{@*)},
+					style=#2
+				}
+			\else
+				\lstset{
+					escapeinside={(*@}{@*)},
+					style=#2,
+					#3
+				}
+			\fi
+		\else
+			\ifx\hfuzz#3\hfuzz
+				\lstset{
+					caption={#4 #1},
+					captionpos=t,
+					escapeinside={(*@}{@*)},
+					style=#2
+				}
+			\else
+				\lstset{
+					caption={#4 #1},
+					captionpos=t,
+					escapeinside={(*@}{@*)},
+					style=#2,
+					#3
+				}
+			\fi
+		\fi
+	}{
+		\ifx\hfuzz#4\hfuzz
+			\ifx\hfuzz#3\hfuzz
+				\lstset{
+					escapeinside={(*@}{@*)},
+					style=#2
+				}
+			\else
+				\lstset{
+					escapeinside={(*@}{@*)},
+					style=#2,
+					#3
+				}
+			\fi
+		\else
+			\ifx\hfuzz#3\hfuzz
+				\lstset{
+					caption={#4 #1},
+					captionpos=b,
+					style=#2
+				}
+			\else
+				\lstset{
+					caption={#4 #1},
+					captionpos=b,
+					escapeinside={(*@}{@*)},
+					style=#2,
+					#3
+				}
+			\fi
+		\fi	
+	}
+}
+
+% Inserta código fuente con parámetros
+%	#1	Label (opcional)
+%	#2	Estilo de código
+%	#3	Parámetros
+%	#4	Caption
+\lstnewenvironment{sourcecodep}[4][]{
+	\coreinitsourcecodep{#1}{#2}{#3}{#4}
+}{
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\leftlinenumbers}{
+	}
+}
+
+% Importa código fuente desde un archivo con parámetros
+%	#1	Label (opcional)
+%	#2	Estilo de código
+%	#3	Parámetros
+%	#4	Archivo de código fuente
+%	#5	Caption
+\newcommand{\importsourcecodep}[5][]{
+	\coreinitsourcecodep{#1}{#2}{#3}{#5}
+	\inputlisting{#4}
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\leftlinenumbers}{
+	}
+}
+
+% Inicia código fuente sin parámetros
+%	#1	Label (opcional)
+%	#2	Estilo de código
+%	#3	Caption
+\newcommand{\coreinitsourcecode}[3]{
+	\emptyvarerr{\coreinitsourcecode}{#2}{Estilo de codigo no definido}
+	\checkvalidsourcecodestyle{#2}
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\rightlinenumbers}{
+	}
+	\lstset{
+		backgroundcolor=\color{\sourcecodebgcolor}
+	}
+	\ifthenelse{\equal{\codecaptiontop}{true}}{
+		\ifx\hfuzz#3\hfuzz
+			\lstset{
+				escapeinside={(*@}{@*)},
+				style=#2
+			}
+		\else
+			\lstset{
+				escapeinside={(*@}{@*)},
+				caption={#3 #1},
+				captionpos=t,
+				style=#2
+			}
+		\fi
+	}{
+		\ifx\hfuzz#3\hfuzz
+			\lstset{
+				escapeinside={(*@}{@*)},
+				style=#2
+			}
+		\else
+			\lstset{
+				escapeinside={(*@}{@*)},
+				caption={#3 #1},
+				captionpos=b,
+				style=#2
+			}
+		\fi
+	}
+}
+
+% Inserta código fuente sin parámetros
+%	#1	Label (opcional)
+%	#2	Estilo de código
+%	#3	Caption
+\lstnewenvironment{sourcecode}[3][]{%
+	\coreinitsourcecode{#1}{#2}{#3}
+}{%
+	\ifthenelse{\equal{\showlinenumbers}{true}}{
+		\leftlinenumbers}{
+	}
+}
+
+% Importa código fuente desde un archivo sin parámetros
+%	#1	Label (opcional)
+%	#2	Estilo de código
+%	#3	Archivo de código fuente
+%	#4	Caption
+\newcommand{\importsourcecode}[4][]{%
+	\coreinitsourcecode{#1}{#2}{#4}%
+	\lstinputlisting{#3}%
+	\ifthenelse{\equal{\showlinenumbers}{true}}{%
+		\leftlinenumbers}{%
+	}
+}
+
+% Itemize en negrita
+%	#1	Parámetros opcionales
+\newenvironment{itemizebf}[1][]{
+	\begin{itemize}[font=\bfseries,#1]
+	}{
+	\end{itemize}
+}
+
+% Enumerate en negrita
+%	#1	Parámetros opcionales
+\newenvironment{enumeratebf}[1][]{
+	\begin{enumerate}[font=\bfseries,#1]
+	}{
+	\end{enumerate}
+}
+
+% Crea una sección de imágenes múltiples
+%	#1	Label (opcional)
+%	#2	Caption
+\newenvironment{images}[2][]{%
+	% Modifica globales
+	\def\envimageslabelvar {#1}
+	\def\envimagescaptionvar {#2}
+	\global\def\GLOBALenvimageinitialized {true}
+	\global\def\GLOBALenvimageadded {false}
+	
+	% Configura caption y márgenes
+	\corevspacevarcm{\marginimagetop}%
+	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
+	
+	% Inicia la figura
+	\begin{samepage}%
+	\begin{figure}[H] \centering%
+		\corevspacevarcm{\marginimagemulttop}%
+		}{%
+		\setcaptionmargincm{\captionlrmargin}%
+		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
+			\corevspacevarcm{\captionlessmarginimage}%
+		}{%
+			\ifthenelse{\equal{\captionmarginimages}{0}}{}{\corevspacevarcm{\captionmarginimages}}%
+			\caption{\envimagescaptionvar\envimageslabelvar}%
+		}%
+	\end{figure}%
+
+	% Restablece caption y márgenes
+	\setcaptionmargincm{\captionlrmargin}%
+	\corevspacevarcm{\marginimagebottom}%
+	\end{samepage}
+	
+	% Restablece globales
+	\global\def\GLOBALenvimageinitialized {false}
+}
+
+% Crea una sección de imágenes múltiples completa dentro de un multicol
+%	#1	Label (opcional)
+%	#2	Posición de la imagen, "bottom", "top"
+%	#3	Caption
+\newenvironment{imagesmc}[3][]{
+	% Modifica globales
+	\def\envimageslabelvar {#1}
+	\def\envimagesmcpos {#2}
+	\def\envimagescaptionvar {#3}
+	\global\def\GLOBALenvimageinitialized {true}
+	\global\def\GLOBALenvimageadded {false}
+	\checkinsidemulticol%
+	\checkoutsideappendix%
+	
+	% Configura caption y márgenes
+	\setcaptionmargincm{\captionmarginmultimg} % Eso es para los wrapfig
+	
+	% Inicia la figura
+	\ifthenelse{\equal{#2}{bottom}}{%
+		\begin{figure*}[b] \centering%
+	}{%
+	\ifthenelse{\equal{#2}{top}}{%
+		\begin{figure*}[t] \centering%
+	}{%
+		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top}
+		\stop
+	}}%
+		\corevspacevarcm{\marginimagemulttop}%
+	}{%
+		\setcaptionmargincm{\captionlrmargin}%
+		\ifthenelse{\equal{\envimagescaptionvar}{}}{ % \ifx\hfuzz no sirve
+			\corevspacevarcm{\captionlessmarginimage}%
+		}{%
+			\ifthenelse{\equal{\captionmarginimagesmc}{0}}{}{\corevspacevarcm{\captionmarginimagesmc}}
+			\caption{\envimagescaptionvar\envimageslabelvar}%
+		}%
+	\end{figure*}%
+	
+	% Restablece caption y márgenes
+	\setcaptionmargincm{\captionlrmarginmc}%
+	
+	% Restablece globales
+	\global\def\GLOBALenvimageinitialized {false}
+}
