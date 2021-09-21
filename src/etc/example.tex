@@ -9,12 +9,6 @@
 % Manual template: [https://latex.ppizarror.com/poster]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
-\begin{frame}[fragile,t]
-\begin{columns}[t]
-\separatorcolumn
-
-\begin{column}{\colwidth}
-
 \begin{block}{Introducción}
 	Este template permite crear pósters usando las funciones y entornos de toda la suite \href{https://latex.ppizarror.com/}{Template-Latex}. Los entornos para insertar imágenes, códigos fuente, tablas y otros elementos son las mismas que todos los demás, lo que facilita el uso y la migración entre estilos.
 	
@@ -33,6 +27,7 @@
 		
 	\end{alertblock}
 \end{block}
+
 
 \begin{block}{Insertar tablas}
 	Insertar tablas es muy fácil, para ello se deben usar exactamente los mismos comandos que en todo el resto de templates, dando soporte a celdas de colores, notas al pie, entre otros. También funcionan los plugins \cite{tablesgenerator, excel2latex}.
@@ -82,11 +77,10 @@
 	\insertequationcaptioned[\label{eqn:formulasinsentido}]{\int_{a}^{b} f(x) \dd{x} = \fracnpartial{f(x)}{x}{\eta} \cdotp \textstyle \sum_{x=a}^{b} f(x)\cancelto{1+\frac{\epsilon}{k}}{\bigp{1+\Delta x}}}{Ecuación sin sentido \cite{einstein}.}
 \end{block}
 
-\end{column}
 
+% CREA UNA NUEVA COLUMNA
 \separatorcolumn
 
-\begin{column}{\colwidth}
 
 \begin{block}{Párrafos e imágenes múltiples}
 	
@@ -139,13 +133,5 @@ VT = np.zeros((n*m, 1), int) # Comentario 2
 
 
 \begin{block}{Referencias}
-	
-	\small{\bibliography{library}}
-	
+	\bibliography{library}
 \end{block}
-
-\end{column}
-
-\separatorcolumn
-\end{columns}
-\end{frame}

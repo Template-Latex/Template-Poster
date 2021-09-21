@@ -3262,6 +3262,19 @@
 % Configura el poster
 \title{\documenttitle}
 
+% Entorno del poster
+\newenvironment{poster}[1][]{%
+	\begin{frame}[fragile,t,environment=poster,#1]%
+	\begin{columns}[t]%
+	\begin{column}{\sepwidth}\end{column}%
+	\begin{column}{\colwidth}%
+	}{
+	\end{column}
+	\begin{column}{\sepwidth}\end{column}%
+	\end{columns}%Ç
+	\end{frame}%
+}
+
 % Separador de columnas
 \newcommand{\separatorcolumn}{%
 	\end{column}%
@@ -4855,7 +4868,7 @@
 		Template.Name={Template-Presentacion},
 		Template.Type={Normal},
 		Template.Version.Dev={0.0.1-1-PRES},
-		Template.Version.Hash={8FDE263ED733F834325EB0DFA8A2FA03},
+		Template.Version.Hash={18652EC44E59DCD191DEEC9CB8C21841},
 		Template.Version.Release={0.0.1},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Presentacion},
 		Template.Web.Manual={https://latex.ppizarror.com/presentacion},
@@ -5722,4 +5735,5 @@
 	% -------------------------------------------------------------------------
 	\setcounter{section}{0}
 	\setcounter{footnote}{0}
+	
 }
