@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Archivo de ejemplo
-% Versión:      0.0.1 (21/09/2021)
+% Versión:      0.0.3 (21/09/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -83,8 +83,7 @@
 
 
 \begin{block}{Párrafos e imágenes múltiples}
-	
-	El entorno \textbf{imagesmc} ofrece funciones para insertar imágenes múltiples:
+	El entorno \textbf{images} ofrece funciones para insertar imágenes múltiples:
 	
 	\begin{images}{Ejemplo de imagen múltiple.}
 		\addimage{test-image}{height=7cm}{Ciudad}
@@ -115,9 +114,8 @@
 		\end{enumerate}
 	\end{multicols}
 
+	Para insertar códigos fuente el procedimiento es diferente, ya que los bloques insertados deben tener la etiqueta \textbf{[fragile]}, al igual que \href{https://latex.ppizarror.com/presentacion}{Template-Presentacion}. Se recomienda no poner un código fuente dentro de \textbf{block} ya que ocurren errores a nivel de distancias para el caption.
 \end{block}
-
-Para insertar códigos fuente el procedimiento es diferente, ya que los bloques insertados deben tener la etiqueta \textbf{[fragile]}, al igual que \href{https://latex.ppizarror.com/presentacion}{Template-Presentacion}. Se recomienda no poner un código fuente dentro de \textbf{block} ya que ocurren errores a nivel de distancias para el caption.
 
 \begin{sourcecode}[\label{codigo-python}]{python}{Ejemplo en Python.}
 import numpy as np
@@ -129,7 +127,10 @@ M = None # Comentario 1
 VT = np.zeros((n*m, 1), int) # Comentario 2
 \end{sourcecode}
 
-\lipsum[3] \newp
+
+\begin{block}{}
+	\lipsum[6]
+\end{block}
 
 
 \begin{block}{Referencias}
