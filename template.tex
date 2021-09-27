@@ -3544,11 +3544,16 @@
 %	#3	Parámetros
 %	#4	Caption
 \lstnewenvironment{sourcecodep}[4][]{
+	\begin{adjustbox}{max width=\colwidth}%
+	\noindent
+	\raggedright
+	\hspace{-0.082\colwidth}
 	\coreinitsourcecodep{#1}{#2}{#3}{#4}
 }{
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\leftlinenumbers}{
 	}
+\end{adjustbox}
 }
 
 % Importa código fuente desde un archivo con parámetros
@@ -3614,7 +3619,8 @@
 %	#2	Estilo de código
 %	#3	Caption
 \lstnewenvironment{sourcecode}[3][]{%
-	\coreinitsourcecode{#1}{#2}{#3}
+	\vspace{-\baselineskip}%
+	\coreinitsourcecode{#1}{#2}{#3\vspace{-1.3\baselineskip}}%
 }{%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{
 		\leftlinenumbers}{
@@ -3627,7 +3633,8 @@
 %	#3	Archivo de código fuente
 %	#4	Caption
 \newcommand{\importsourcecode}[4][]{%
-	\coreinitsourcecode{#1}{#2}{#4}%
+	\vspace{-\baselineskip}%
+	\coreinitsourcecode{#1}{#2}{#4\vspace{-1.3\baselineskip}}%
 	\lstinputlisting{#3}%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\leftlinenumbers}{%
@@ -4558,7 +4565,7 @@
 \lstset{
 	aboveskip=0.75em,
 	basicstyle={\sourcecodefonts\sourcecodefontf\color{\maintextcolor}},
-	belowskip=1em,
+	belowskip=0.5em,
 	breaklines=true,
 	columns=fullflexible,
 	commentstyle=\color{dkgreen}\upshape,
