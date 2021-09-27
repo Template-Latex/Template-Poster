@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Núcleo del template
-% Versión:      0.0.3 (21/09/2021)
+% Versión:      0.0.4 (26/09/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -3543,17 +3543,13 @@
 %	#2	Estilo de código
 %	#3	Parámetros
 %	#4	Caption
-\lstnewenvironment{sourcecodep}[4][]{
-	\begin{adjustbox}{max width=\colwidth}%
-	\noindent
-	\raggedright
-	\hspace{-0.082\colwidth}
-	\coreinitsourcecodep{#1}{#2}{#3}{#4}
-}{
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\leftlinenumbers}{
-	}
-\end{adjustbox}
+\lstnewenvironment{sourcecodep}[4][]{%
+	\vspace{-0.75\baselineskip}%
+	\coreinitsourcecodep{#1}{#2}{#3}{#4\vspace{-1.1\baselineskip}}%
+}{%
+	\ifthenelse{\equal{\showlinenumbers}{true}}{%
+		\leftlinenumbers}{%
+	}%
 }
 
 % Importa código fuente desde un archivo con parámetros
@@ -3562,12 +3558,13 @@
 %	#3	Parámetros
 %	#4	Archivo de código fuente
 %	#5	Caption
-\newcommand{\importsourcecodep}[5][]{
-	\coreinitsourcecodep{#1}{#2}{#3}{#5}
-	\inputlisting{#4}
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\leftlinenumbers}{
-	}
+\newcommand{\importsourcecodep}[5][]{%
+	\vspace{-0.75\baselineskip}%
+	\coreinitsourcecodep{#1}{#2}{#3}{#5\vspace{-1.1\baselineskip}}%
+	\inputlisting{#4}%
+	\ifthenelse{\equal{\showlinenumbers}{true}}{%
+		\leftlinenumbers}{%
+	}%
 }
 
 % Inicia código fuente sin parámetros
@@ -3619,12 +3616,12 @@
 %	#2	Estilo de código
 %	#3	Caption
 \lstnewenvironment{sourcecode}[3][]{%
-	\vspace{-\baselineskip}%
-	\coreinitsourcecode{#1}{#2}{#3\vspace{-1.3\baselineskip}}%
+	\vspace{-0.75\baselineskip}%
+	\coreinitsourcecode{#1}{#2}{#3\vspace{-1.1\baselineskip}}%
 }{%
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\leftlinenumbers}{
-	}
+	\ifthenelse{\equal{\showlinenumbers}{true}}{%
+		\leftlinenumbers}{%
+	}%
 }
 
 % Importa código fuente desde un archivo sin parámetros
@@ -3633,8 +3630,8 @@
 %	#3	Archivo de código fuente
 %	#4	Caption
 \newcommand{\importsourcecode}[4][]{%
-	\vspace{-\baselineskip}%
-	\coreinitsourcecode{#1}{#2}{#4\vspace{-1.3\baselineskip}}%
+	\vspace{-0.75\baselineskip}%
+	\coreinitsourcecode{#1}{#2}{#4\vspace{-1.1\baselineskip}}%
 	\lstinputlisting{#3}%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\leftlinenumbers}{%
@@ -4563,15 +4560,18 @@
 % Configuración de códigos fuente
 % -----------------------------------------------------------------------------
 \lstset{
-	aboveskip=0.75em,
+	aboveskip=\sourcecodeskipabove em,
 	basicstyle={\sourcecodefonts\sourcecodefontf\color{\maintextcolor}},
-	belowskip=0.5em,
+	belowskip=\sourcecodeskipbelow em,
 	breaklines=true,
 	columns=fullflexible,
 	commentstyle=\color{dkgreen}\upshape,
 	extendedchars=true,
 	fontadjust=true,
-	% fancyvrb=false,
+	frame=ltb,
+	framerule=0pt,
+	framexleftmargin=\sourcecodebtmargin pt,
+	framextopmargin=\sourcecodebtmargin pt,
 	identifierstyle=\color{\maintextcolor},
 	keepspaces=true,
 	keywordstyle=\color{blue},
@@ -4867,16 +4867,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={21/09/2021},
+		Template.Date={26/09/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Presentacion},
 		Template.Type={Normal},
-		Template.Version.Dev={0.0.3-PRES},
-		Template.Version.Hash={82C327EB9DF6CA684B491FD833003F9C},
-		Template.Version.Release={0.0.3},
+		Template.Version.Dev={0.0.4-PRES},
+		Template.Version.Hash={8761C2FBFE00BB6AAA67968D2030D636},
+		Template.Version.Release={0.0.4},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Presentacion},
 		Template.Web.Manual={https://latex.ppizarror.com/presentacion},
 	},
@@ -4884,7 +4884,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Presentacion v0.0.3 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Presentacion v0.0.4 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5455,6 +5455,11 @@
 % Configura las ecuaciones
 % -----------------------------------------------------------------------------
 \setlength\belowdisplayshortskip{2ex}
+
+% -----------------------------------------------------------------------------
+% Configura los caption
+% -----------------------------------------------------------------------------
+\captionsetup[lstlisting]{margin={0pt,5pt}}
 
 % -----------------------------------------------------------------------------
 % Define el tamaño de página

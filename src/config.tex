@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Configuraciones del template
-% Versión:      0.0.3 (21/09/2021)
+% Versión:      0.0.4 (26/09/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -47,7 +47,7 @@
 \def\captiontbmarginfigure {20}    % Margen sup/inf de leyenda en figuras [pt]
 \def\captiontbmargintable {7}      % Margen sup/inf de la leyenda en tablas [pt]
 \def\captiontextbold {false}       % Etiqueta (código,figura,tabla) en negrita
-\def\captiontextsubnumbold {true}  % N° subfigura/subtabla en negrita
+\def\captiontextsubnumbold {false} % N° subfigura/subtabla en negrita
 \def\codecaptiontop {true}         % Leyenda arriba del código fuente
 \def\equationcaptioncenter {true}  % Ecuaciones están centradas o justificadas
 \def\figurecaptiontop {false}      % Leyenda arriba de las imágenes
@@ -115,12 +115,15 @@
 \def\sitemizeii {\iitemdash}       % Estilo itemize nivel 2
 \def\sitemizeiii {\iitemcirc}      % Estilo itemize nivel 3
 \def\sitemizeiv {\iitembsquare}    % Estilo itemize nivel 4
+\def\sourcecodebtmargin {0}        % Margen superior e inferior del bloque [pt]
 \def\sourcecodefontf {\ttfamily}   % Tipo de letra código fuente
 \def\sourcecodefonts {\normalsize} % Tamaño letra código fuente
 \def\sourcecodeilfontf {\ttfamily} % Tipo de letra código fuente inline
 \def\sourcecodeilfonts{\normalsize}% Tamaño letra código fuente inline
 \def\sourcecodenumbersep {12}      % Separación entre número línea y código [pt]
-\def\sourcecodenumbersize {\small} % Tamaño fuente número línea
+\def\sourcecodenumbersize{\scriptsize} % Tamaño fuente número línea
+\def\sourcecodeskipabove {0.75}    % Espacio sobre recuadro código [em]
+\def\sourcecodeskipbelow {0.5}     % Espacio bajo recuadro código [em]
 \def\sourcecodetabsize {3}         % Tamaño tabulación código fuente
 \def\tabledefaultplacement {H}     % Posición por defecto de las tablas
 \def\tablenotesameline {true}      % Notas en tablas en una sola línea
