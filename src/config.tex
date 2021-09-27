@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Configuraciones del template
-% Versión:      0.0.4 (26/09/2021)
+% Versión:      0.0.5 (27/09/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -22,8 +22,6 @@
 \def\graphicxdraft {false}         % En true no carga las imágenes (modo draft)
 \def\pointdecimal {true}           % N° decimales con punto en vez de coma
 \def\showlayoutlines {false}       % Muestra el layout de la página
-\def\useenglishbabel {false}       % Inglés, desactivar para otros idiomas
-\def\usespanishbabel {true}        % Español, desactivar para otros idiomas
 
 % CONFIGURACIÓN DE LAS LEYENDAS - CAPTION
 \def\captionalignment {justified}  % Posición {centered,justified,left,right}
@@ -140,6 +138,7 @@
 \def\linkcolor {black}             % Color de los links del documento
 \def\maintextcolor {black}         % Color principal del texto
 \def\numcitecolor {black}          % Color del n° de las referencias o citas
+\def\pagescolor {white}            % Color de la página
 \def\showborderonlinks {false}     % Color de un link por un recuadro de color
 \def\sourcecodebgcolor {lgray}     % Color de fondo del código fuente
 \def\tablelinecolor {black}        % Color de las líneas de las tablas
@@ -167,6 +166,10 @@
 \def\usepdfmetadata {true}         % Añade metadatos al pdf compilado
 
 % NOMBRE DE OBJETOS
+\def\nameltappendixsection {Anexo} % Etiqueta sección en anexo/apéndices
+\def\nameltwfigure {Figura}        % Etiqueta leyenda de las figuras
+\def\nameltwsrc {Código}           % Etiqueta leyenda del código fuente
+\def\nameltwtable {Tabla}          % Etiqueta leyenda de las tablas
 \def\namemathcol {Corolario}       % Nombre de los colorarios
 \def\namemathdefn {Definición}     % Nombre de las definiciones
 \def\namemathej {Ejemplo}          % Nombre de los ejemplos
@@ -175,23 +178,15 @@
 \def\namemathprp {Proposición}     % Nombre de las proposiciones
 \def\namemaththeorem {Teorema}     % Nombre de los teoremas
 \def\namereferences {Referencias}  % Nombre de la sección de referencias
-\def\nomltappendixsection {Anexo}  % Etiqueta sección en anexo/apéndices
-\def\nomltwfigure {Figura}         % Etiqueta leyenda de las figuras
-\def\nomltwsrc {Código}            % Etiqueta leyenda del código fuente
-\def\nomltwtable {Tabla}           % Etiqueta leyenda de las tablas
 
 % CONFIGURA BEAMER
 % https://latex.ppizarror.com/doc/beameruserguide.pdf
 \mode<presentation> {
 	
-	% IDIOMA
-	\uselanguage{spanish}
-	\languagepath{spanish}
-	
 	% CONFIGURACIONES GENERALES
 	\def\colnumbers {2}
 	\def\colseparation {0.03\paperwidth}
-	\def\posterheight {83}
+	\def\posterheight {82}
 	\def\posterwidth {66}
 	
 	% CONFIGURA LOS BLOQUES, VALORES EN [EM]
@@ -200,6 +195,13 @@
 	\def\blockpaddingleft {0.6}
 	\def\blockpaddingright {0.6}
 	\def\blockpaddingtop {0.75}
+	
+	% ESTILO BLOQUES ALERT/EXAMPLE
+	\def\blockaemarginbottom {1}
+	\def\blockaepaddingbottom {0.6}
+	\def\blockaepaddingleft {0.6}
+	\def\blockaepaddingright {0.6}
+	\def\blockaepaddingtop {0.75}
 	
 	% CONFIGURACIÓN DE COLORES Y FUENTES
 	% Básicos
@@ -224,13 +226,17 @@
 	\setbeamerfont{block title}{size=\Large,series=\bfseries}
 	
 	% Bloque de alerta
-	\setbeamercolor{block alerted title}{fg=mitred,bg=lightgray}
-	\setbeamercolor{block alerted separator}{bg=black}
-	\setbeamercolor{block alerted body}{fg=black,bg=lightgray}
-	\setbeamercolor{block example body}{fg=black,bg=lightgray}
+	\setbeamercolor{block alerted title}{fg=white,bg=mitred}
+	\setbeamercolor{block alerted separator}{bg=white}
+	\setbeamercolor{block alerted body}{fg=white,bg=mitred}
+	
+	% Bloque de ejemplo
+	\setbeamercolor{block example title}{fg=mitred,bg=lgray}
+	\setbeamercolor{block example separator}{bg=black}
+	\setbeamercolor{block example body}{fg=black,bg=lgray}
 	
 	% Cabecera y Títulos
-	\setbeamercolor{headline}{fg=black,bg=lightgray}
+	\setbeamercolor{headline}{fg=black,bg=lgray}
 	\setbeamercolor{heading}{fg=black}
 	\setbeamerfont{headline}{}
 	\setbeamerfont{headline title}{size=\huge,series=\bfseries}

@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Núcleo del template
-% Versión:      0.0.4 (26/09/2021)
+% Versión:      0.0.5 (27/09/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -71,10 +71,11 @@
 \usepackage{ifthen}
 
 % Carga el idioma
-\ifthenelse{\equal{\usespanishbabel}{true}}{
-	\usepackage[spanish,es-nosectiondot,es-lcroman,es-noquoting]{babel}}{
-\ifthenelse{\equal{\useenglishbabel}{true}}{
-	\usepackage[english]{babel}}{}
+\usepackage{tracklang}
+\IfTrackedLanguage{spanish}{
+	\usepackage[es-nosectiondot,es-lcroman,es-noquoting]{babel}
+}{ % english, otros
+	\usepackage{babel}
 }
 
 % Codificación
@@ -3261,6 +3262,7 @@
 
 % Configura el poster
 \title{\documenttitle}
+\setbeamercolor{background canvas}{bg=\pagescolor}
 
 % Entorno del poster
 \newenvironment{poster}[1][]{%
@@ -3392,7 +3394,7 @@
 	\end{beamercolorbox}%
 	{\parskip 0pt \par}%
 	\ifthenelse{\equal{\insertblocktitle}{}}{%
-		\vspace{-1.25\baselineskip}%
+		\vspace{-1.65\baselineskip}%
 	}{}
 	\usebeamerfont{block body}%
 	\vskip -0.5ex%
@@ -3408,29 +3410,65 @@
 	\vspace*{2ex}%
 }
 
-% Alertas
+% Bloque Alerta
 \setbeamertemplate{block alerted begin}{%
 	\begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block alerted title}%
-		% \vskip 0pt%
+		\vskip 0pt%
 		\ifthenelse{\equal{\insertblocktitle}{}}{}{%
 			\usebeamerfont{block title}\insertblocktitle%
 			\vskip -1.25ex%
 			\begin{beamercolorbox}[colsep=0.025ex]{block alerted separator}\end{beamercolorbox}%
+			\vskip -0.75ex%
 		}
 	\end{beamercolorbox}%
 	{\parskip 0pt \par}%
+	\ifthenelse{\equal{\insertblocktitle}{}}{%
+		\vspace{-1.65\baselineskip}%
+	}{}
 	\usebeamerfont{block body}%
 	\vskip -0.5ex%
 	\begin{beamercolorbox}[colsep*=0ex]{block alerted body}%
 		\justifying%
 		\begin{adjustwidth}{1ex}{1ex}%
 			\setlength{\parskip}{1ex}%
-			\vskip-2ex%
+			\vskip -0.35ex%
 		}%
 		\setbeamertemplate{block alerted end}%
 		{%
 		\end{adjustwidth}%
-		\vskip 1ex%
+		\vskip 1.25ex%
+	\end{beamercolorbox}%
+	% \vskip 0pt%
+	\vspace*{2ex}%
+}
+
+% Bloque Ejemplo
+\setbeamertemplate{block example begin}{%
+	\begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block example title}%
+		\vskip 0pt%
+		\ifthenelse{\equal{\insertblocktitle}{}}{}{%
+			\usebeamerfont{block title}\insertblocktitle%
+			\vskip -1.25ex%
+			\begin{beamercolorbox}[colsep=0.025ex]{block example separator}\end{beamercolorbox}%
+			\vskip -0.75ex%
+		}
+	\end{beamercolorbox}%
+	{\parskip 0pt \par}%
+	\ifthenelse{\equal{\insertblocktitle}{}}{%
+		\vspace{-1.65\baselineskip}%
+	}{}
+	\usebeamerfont{block body}%
+	\vskip -0.5ex%
+	\begin{beamercolorbox}[colsep*=0ex]{block example body}%
+		\justifying%
+		\begin{adjustwidth}{1ex}{1ex}%
+			\setlength{\parskip}{1ex}%
+			\vskip -0.35ex%
+		}%
+		\setbeamertemplate{block example end}%
+		{%
+		\end{adjustwidth}%
+		\vskip 1.25ex%
 	\end{beamercolorbox}%
 	% \vskip 0pt%
 	\vspace*{2ex}%
@@ -4867,16 +4905,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={26/09/2021},
+		Template.Date={27/09/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Presentacion},
 		Template.Type={Normal},
-		Template.Version.Dev={0.0.4-PRES},
-		Template.Version.Hash={8761C2FBFE00BB6AAA67968D2030D636},
-		Template.Version.Release={0.0.4},
+		Template.Version.Dev={0.0.5-PRES},
+		Template.Version.Hash={6613CB807F076AE488D2960A0B1E4815},
+		Template.Version.Release={0.0.5},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Presentacion},
 		Template.Web.Manual={https://latex.ppizarror.com/presentacion},
 	},
@@ -4884,7 +4922,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Presentacion v0.0.4 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Presentacion v0.0.5 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5401,21 +5439,53 @@
 % -----------------------------------------------------------------------------
 % Configura los bloques
 % -----------------------------------------------------------------------------
-\addtobeamertemplate{block begin}{
-}{
+% Normal
+\addtobeamertemplate{block begin}{}{
 	\setlength\abovedisplayskip{0pt}%
-	\vspace{\dimexpr-0.7em + \blockpaddingtop em} % Padding superior
+	\vspace{\dimexpr-0.7em + \blockpaddingtop em} % Padding superior bloque
 	\begin{adjustwidth}{%
-		\dimexpr-0.4em + \blockpaddingleft em % Padding izquierdo
+		\dimexpr-0.4em + \blockpaddingleft em % Padding izquierdo bloque
 	}{
-		\dimexpr-0.4em + \blockpaddingright em % Padding derecho
+		\dimexpr-0.4em + \blockpaddingright em % Padding derecho bloque
 	}
 }
 \addtobeamertemplate{block end}{
 	\end{adjustwidth}
-	\vspace{\dimexpr-0.6em + \blockpaddingbottom em} % Padding inferior
+	\vspace{\dimexpr-0.6em + \blockpaddingbottom em} % Padding inferior bloque
 }{
-	\vspace{\dimexpr-1em + \blockmarginbottom em} % Margen inferior de los bloques
+	\vspace{\dimexpr-1.07em + \blockmarginbottom em} % Margen inferior bloque
+}
+% Alerta
+\addtobeamertemplate{block alerted begin}{}{
+	\setlength\abovedisplayskip{0pt}%
+	\vspace{\dimexpr-0.7em + \blockaepaddingtop em} % Padding superior alerta
+	\begin{adjustwidth}{%
+			\dimexpr-0.4em + \blockaepaddingleft em % Padding izquierdo alerta
+		}{
+			\dimexpr-0.4em + \blockaepaddingright em % Padding derecho alerta
+		}
+	}
+\addtobeamertemplate{block alerted end}{
+	\end{adjustwidth}
+	\vspace{\dimexpr-0.6em + \blockaepaddingbottom em} % Padding inferior alerta
+}{
+	\vspace{\dimexpr-1.07em + \blockaemarginbottom em} % Margen inferior alerta
+}
+% Ejemplo
+\addtobeamertemplate{block example begin}{}{
+	\setlength\abovedisplayskip{0pt}%
+	\vspace{\dimexpr-0.7em + \blockaepaddingtop em} % Padding superior ejemplo
+	\begin{adjustwidth}{%
+			\dimexpr-0.4em + \blockaepaddingleft em % Padding izquierdo ejemplo
+		}{
+			\dimexpr-0.4em + \blockaepaddingright em % Padding derecho ejemplo
+		}
+	}
+\addtobeamertemplate{block example end}{
+	\end{adjustwidth}
+	\vspace{\dimexpr-0.6em + \blockaepaddingbottom em} % Padding inferior ejemplo
+}{
+	\vspace{\dimexpr-1.07em + \blockaemarginbottom em} % Margen inferior ejemplo
 }
 
 % -----------------------------------------------------------------------------
@@ -5425,6 +5495,16 @@
 	\begin{block}#2{#1}\justifying
 }{%
 	\end{block}
+}
+\newenvironment<>{alertblockjustified}[1]{%
+	\begin{alertblock}#2{#1}\justifying
+}{%
+	\end{alertblock}
+}
+\newenvironment<>{exampleblockjustified}[1]{%
+	\begin{exampleblock}#2{#1}\justifying
+}{%
+	\end{exampleblock}
 }
 
 % -----------------------------------------------------------------------------
@@ -5496,12 +5576,12 @@
 	% -------------------------------------------------------------------------
 	% Definición de nombres de objetos
 	% -------------------------------------------------------------------------
-	\renewcommand{\appendixname}{\nomltappendixsection} % Nombre del anexo (título)
-	\renewcommand{\figurename}{\nomltwfigure} % Nombre de la leyenda de las fig.
-	\renewcommand{\lstlistingname}{\nomltwsrc} % Nombre leyenda del código fuente
+	\renewcommand{\appendixname}{\nameltappendixsection} % Nombre del anexo (título)
+	\renewcommand{\figurename}{\nameltwfigure} % Nombre de la leyenda de las fig.
+	\renewcommand{\lstlistingname}{\nameltwsrc} % Nombre leyenda del código fuente
 	\renewcommand{\refname}{\namereferences} % Nombre de las referencias (bibtex)
 	\renewcommand{\bibname}{\namereferences} % Nombre de las referencias (natbib)
-	\renewcommand{\tablename}{\nomltwtable} % Nombre de la leyenda de tablas
+	\renewcommand{\tablename}{\nameltwtable} % Nombre de la leyenda de tablas
 
 }
 
