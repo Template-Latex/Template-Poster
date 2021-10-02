@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      0.0.5 (27/09/2021)
+% Versión:      0.0.6 (02/10/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -44,16 +44,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={27/09/2021},
+		Template.Date={02/10/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Presentacion},
 		Template.Type={Normal},
-		Template.Version.Dev={0.0.5-PRES},
-		Template.Version.Hash={6613CB807F076AE488D2960A0B1E4815},
-		Template.Version.Release={0.0.5},
+		Template.Version.Dev={0.0.6-PRES},
+		Template.Version.Hash={746695E9D1ED1B7268E6D96ED0F2C9C3},
+		Template.Version.Release={0.0.6},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Presentacion},
 		Template.Web.Manual={https://latex.ppizarror.com/presentacion},
 	},
@@ -61,7 +61,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Presentacion v0.0.5 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Presentacion v0.0.6 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -328,13 +328,6 @@
 % Crea las sub-sub-sub-secciones
 % -----------------------------------------------------------------------------
 \newcounter{subsubsubsection}[subsubsection]
-\ifthenelse{\equal{\dotaftersnum}{true}}{ % Agrega punto tras el número
-	\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}.}
-	\renewcommand{\theparagraph}{\thesubsubsubsection.\arabic{paragraph}.}
-}{
-	\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}
-	\renewcommand{\theparagraph}{\thesubsubsubsection.\arabic{paragraph}}
-}
 
 % Límite máximo profundidad
 \setcounter{secnumdepth}{4}

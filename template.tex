@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Núcleo del template
-% Versión:      0.0.5 (27/09/2021)
+% Versión:      0.0.6 (02/10/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -200,9 +200,6 @@
 }{
 	\usepackage[bottom,norule,hang]{footmisc}
 }
-
-% Agrega punto a títulos/subtítulos
-\def\dotaftersnum {false}
 
 % Referencias
 \usepackage[pdfencoding=auto,psdextra]{hyperref}
@@ -2619,47 +2616,39 @@
 \makeatother
 
 % Activa la numeración en las secciones
-\def\coreintializetitlenumbering {
+\def\coreintializetitlenumbering {%
 	% Section
-	\ifthenelse{\equal{\GLOBALchapternumenabled}{false}}{
-		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
-			\renewcommand{\thesection}{\Alph{section}}
-		}{
-			\renewcommand{\thesection}{\arabic{section}}
-		}
-	}{
-		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{
-			\renewcommand{\thesection}{\thechapter.\Alph{section}}
-		}{
-			\renewcommand{\thesection}{\thechapter.\arabic{section}}
-		}
-	}
+	\ifthenelse{\equal{\GLOBALchapternumenabled}{false}}{%
+		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{%
+			\renewcommand{\thesection}{\Alph{section}}%
+		}{%
+			\renewcommand{\thesection}{\arabic{section}}%
+		}%
+	}{%
+		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{%
+			\renewcommand{\thesection}{\thechapter.\Alph{section}}%
+		}{%
+			\renewcommand{\thesection}{\thechapter.\arabic{section}}%
+		}%
+	}%
 	% Subsection
-	\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{
-		\renewcommand{\thesubsection}{\arabic{subsection}}
-	}{
-		\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
-	}
+	\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{%
+		\renewcommand{\thesubsection}{\arabic{subsection}}%
+	}{%
+		\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}%
+	}%
 	% Subsubsection
-	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{
-		\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
-	}{
-		\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
-	}
+	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{%
+		\renewcommand{\thesubsubsection}{\arabic{subsubsection}}%
+	}{%
+		\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}%
+	}%
 	% Subsubsubsection
-	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{
-		\ifthenelse{\equal{\dotaftersnum}{true}}{
-			\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}.}
-		}{
-			\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}}
-		}
-	}{
-		\ifthenelse{\equal{\dotaftersnum}{true}}{
-			\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}.}
-		}{
-			\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}
-		}
-	}
+	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{%
+		\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}}%
+	}{%
+		\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}%
+	}%
 	\hbadness=10000%
 }
 
@@ -4905,16 +4894,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={27/09/2021},
+		Template.Date={02/10/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Presentacion},
 		Template.Type={Normal},
-		Template.Version.Dev={0.0.5-PRES},
-		Template.Version.Hash={6613CB807F076AE488D2960A0B1E4815},
-		Template.Version.Release={0.0.5},
+		Template.Version.Dev={0.0.6-PRES},
+		Template.Version.Hash={746695E9D1ED1B7268E6D96ED0F2C9C3},
+		Template.Version.Release={0.0.6},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Presentacion},
 		Template.Web.Manual={https://latex.ppizarror.com/presentacion},
 	},
@@ -4922,7 +4911,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Presentacion v0.0.5 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Presentacion v0.0.6 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5189,13 +5178,6 @@
 % Crea las sub-sub-sub-secciones
 % -----------------------------------------------------------------------------
 \newcounter{subsubsubsection}[subsubsection]
-\ifthenelse{\equal{\dotaftersnum}{true}}{ % Agrega punto tras el número
-	\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}.}
-	\renewcommand{\theparagraph}{\thesubsubsubsection.\arabic{paragraph}.}
-}{
-	\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}
-	\renewcommand{\theparagraph}{\thesubsubsubsection.\arabic{paragraph}}
-}
 
 % Límite máximo profundidad
 \setcounter{secnumdepth}{4}
@@ -5607,11 +5589,7 @@
 		\def\sectionobjectnumcode {\thesubsubsection\sectioncaptiondelimiter}
 	}{
 	\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{
-		\ifthenelse{\equal{\dotaftersnum}{true}}{
-			\def\sectionobjectnumcode {\thesubsubsubsection}
-		}{
-			\def\sectionobjectnumcode {\thesubsubsubsection\sectioncaptiondelimiter}
-		}
+		\def\sectionobjectnumcode {\thesubsubsubsection\sectioncaptiondelimiter}
 	}{
 	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{
 		\def\sectionobjectnumcode {\thechapter\sectioncaptiondelimiter}
@@ -5633,11 +5611,7 @@
 		\def\sectionobjectnumeqn {\thesubsubsection\sectioncaptiondelimiter}
 	}{
 	\ifthenelse{\equal{\showsectioncaptioneqn}{ssssec}}{
-		\ifthenelse{\equal{\dotaftersnum}{true}}{
-			\def\sectionobjectnumeqn {\thesubsubsubsection}
-		}{
-			\def\sectionobjectnumeqn {\thesubsubsubsection\sectioncaptiondelimiter}
-		}
+		\def\sectionobjectnumeqn {\thesubsubsubsection\sectioncaptiondelimiter}
 	}{
 	\ifthenelse{\equal{\showsectioncaptioneqn}{chap}}{
 		\def\sectionobjectnumeqn {\thechapter\sectioncaptiondelimiter}
@@ -5659,11 +5633,7 @@
 		\def\sectionobjectnumfig {\thesubsubsection\sectioncaptiondelimiter}
 	}{
 	\ifthenelse{\equal{\showsectioncaptionfig}{ssssec}}{
-		\ifthenelse{\equal{\dotaftersnum}{true}}{
-			\def\sectionobjectnumfig {\thesubsubsubsection}
-		}{
-			\def\sectionobjectnumfig {\thesubsubsubsection\sectioncaptiondelimiter}
-		}
+		\def\sectionobjectnumfig {\thesubsubsubsection\sectioncaptiondelimiter}
 	}{
 	\ifthenelse{\equal{\showsectioncaptionfig}{chap}}{
 		\def\sectionobjectnumfig {\thechapter\sectioncaptiondelimiter}
@@ -5685,11 +5655,7 @@
 		\def\sectionobjectnumtab {\thesubsubsection\sectioncaptiondelimiter}
 	}{
 	\ifthenelse{\equal{\showsectioncaptiontab}{ssssec}}{
-		\ifthenelse{\equal{\dotaftersnum}{true}}{
-			\def\sectionobjectnumtab {\thesubsubsubsection}
-		}{
-			\def\sectionobjectnumtab {\thesubsubsubsection\sectioncaptiondelimiter}
-		}
+		\def\sectionobjectnumtab {\thesubsubsubsection\sectioncaptiondelimiter}
 	}{
 	\ifthenelse{\equal{\showsectioncaptiontab}{chap}}{
 		\def\sectionobjectnumtab {\thechapter\sectioncaptiondelimiter}
