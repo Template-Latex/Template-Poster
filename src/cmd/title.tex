@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Funciones para insertar títulos
-% Versión:      0.1.2 (26/10/2021)
+% Versión:      0.1.3 (26/10/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -9,45 +9,8 @@
 % Manual template: [https://latex.ppizarror.com/poster]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
-% Activa la numeración en las secciones
-\def\coreintializetitlenumbering {%
-	% Section
-	\ifthenelse{\equal{\GLOBALchapternumenabled}{false}}{%
-		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{%
-			\renewcommand{\thesection}{\Alph{section}}%
-		}{%
-			\renewcommand{\thesection}{\arabic{section}}%
-		}%
-	}{%
-		\ifthenelse{\equal{\GLOBALsectionalph}{true}}{%
-			\renewcommand{\thesection}{\thechapter.\Alph{section}}%
-		}{%
-			\renewcommand{\thesection}{\thechapter.\arabic{section}}%
-		}%
-	}%
-	% Subsection
-	\ifthenelse{\equal{\GLOBALsectionanumenabled}{true}}{%
-		\renewcommand{\thesubsection}{\arabic{subsection}}%
-	}{%
-		\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}%
-	}%
-	% Subsubsection
-	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{%
-		\renewcommand{\thesubsubsection}{\arabic{subsubsection}}%
-	}{%
-		\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}%
-	}%
-	% Subsubsubsection
-	\ifthenelse{\equal{\GLOBALsubsectionanumenabled}{true}}{%
-		\renewcommand{\thesubsubsubsection}{\arabic{subsubsection}.\arabic{subsubsubsection}}%
-	}{%
-		\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}%
-	}%
-	\hbadness=10000%
-}
-
 % Parcha el formato de capítulos
-\pretocmd{\chapter}{
+\pretocmd{\chapter}{%
 	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -68,13 +31,11 @@
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
 	}{}
-	\global\def\GLOBALchapternumenabled {true}%
-	\coreintializetitlenumbering%
 }{}{}
 
 % Parcha el formato de secciones al pasar desde una anum, vuelve a activar número
 % de la sección
-\pretocmd{\section}{
+\pretocmd{\section}{%
 	\ifthenelse{\equal{\showsectioncaptioncode}{sec}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -95,14 +56,11 @@
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
 	}{}
-	\global\def\GLOBALsectionanumenabled {false}%
-	\global\def\GLOBALsubsectionanumenabled {false}%
-	\coreintializetitlenumbering%
 }{}{}
 
 % Comienza nueva subsección, si está dentro de una sectionanum entonces no dibuja el
 % número de sección, si no entonces dibuja el número de forma normal
-\pretocmd{\subsection}{
+\pretocmd{\subsection}{%
 	\ifthenelse{\equal{\showsectioncaptioncode}{ssec}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -123,15 +81,13 @@
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
 	}{}
-	\global\def\GLOBALsubsectionanumenabled {false}%
-	\coreintializetitlenumbering%
 }{}{}
 
 % Comienza nueva subsubsección, aquí hay varios casos:
 %	- si está dentro de una subsección sin número ignora la sección
 %	- si no, entonces puede estar dentro de una sección sin número o no, en ese caso
 %	  debe evaluar ambas posibilidades
-\pretocmd{\subsubsection}{
+\pretocmd{\subsubsection}{%
 	\ifthenelse{\equal{\showsectioncaptioncode}{sssec}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
@@ -152,10 +108,10 @@
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
 	}{}
-	\coreintializetitlenumbering%
 }{}{}
 
-\pretocmd{\subsubsubsection}{
+% Parcha sub-sub-subsecciones
+\pretocmd{\subsubsubsection}{%
 	\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{ % Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
