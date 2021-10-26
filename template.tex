@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Núcleo del template
-% Versión:      0.1.0 (13/10/2021)
+% Versión:      0.1.1 (25/10/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -125,6 +125,7 @@
 % Librerías independientes
 % -----------------------------------------------------------------------------
 \usepackage{animate}       % Imágenes animadas
+\usepackage{amsbsy}        % Símbolos matemáticos en negrita
 \usepackage{amssymb}       % Librerías matemáticas
 \usepackage{amsthm}        % Definición de teoremas
 \usepackage{array}         % Nuevas características a las tablas
@@ -5159,16 +5160,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={13/10/2021},
+		Template.Date={25/10/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Presentacion},
 		Template.Type={Normal},
-		Template.Version.Dev={0.1.0-1-PRES},
-		Template.Version.Hash={B80690E3DBE054CA9024604A2D27169B},
-		Template.Version.Release={0.1.0},
+		Template.Version.Dev={0.1.1-1-PRES},
+		Template.Version.Hash={FE07E1CFFBA6EE38CBD747BADB482629},
+		Template.Version.Release={0.1.1},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Presentacion},
 		Template.Web.Manual={https://latex.ppizarror.com/presentacion},
 	},
@@ -5176,7 +5177,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Presentacion v0.1.0 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Presentacion v0.1.1 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5664,6 +5665,12 @@
 \renewcommand{\labelitemii}{\sitemizeii}
 \renewcommand{\labelitemiii}{\sitemizeiii}
 \renewcommand{\labelitemiv}{\sitemizeiv}
+
+% Márgenes
+\setlength\leftmargini{\sitemsmargini pt}
+\setlength\leftmarginii{\sitemsmarginii pt}
+\setlength\leftmarginiii{\sitemsmarginiii pt}
+\setlength\leftmarginiv{\sitemsmarginiv pt}
 
 % -----------------------------------------------------------------------------
 % Configura métodos aplicados al iniciar el documento

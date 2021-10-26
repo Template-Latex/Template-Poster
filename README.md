@@ -22,7 +22,7 @@
 </div><br>
 
 <p align="center">
-  <img src="https://latex.ppizarror.com/res/images/collage_poster.png" alt="Poster" width="70%" />
+  <img src="https://latex.ppizarror.com/res/images/collage_poster.jpg" alt="Poster" width="70%" />
 </p>
 
 ## Manual de uso
