@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Importación de librerías
-% Versión:      0.1.3 (26/10/2021)
+% Versión:      0.1.4 (31/10/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -33,7 +33,21 @@
 % Librerías del núcleo
 % -----------------------------------------------------------------------------
 % Manejo de condicionales
+\usepackage{iftex}
 \usepackage{ifthen}
+
+% Verifica el tipo de compilador
+\ifPDFTeX
+	\def\compilertype {pdf2latex}
+\else\ifXeTeX
+	\def\compilertype {xelatex}
+\else\ifLuaTeX
+	\def\compilertype {lualatex}
+\else
+	\errmessage{Compilador no soportado}
+	\stop
+	\fi\fi
+\fi
 
 % Carga el idioma
 \usepackage{tracklang}
@@ -101,7 +115,7 @@
 \usepackage{chngcntr}      % Añade números a las leyendas
 \usepackage{color}         % Colores
 \usepackage{datetime}      % Fechas
-\usepackage{floatpag}      % Maneja estilos de páginas introducidos por obj. flotantes
+\usepackage{floatpag}      % Maneja estilos de páginas introducidos por objetos flotantes
 \usepackage{floatrow}      % Permite administrar posiciones en los caption
 \usepackage{framed}        % Permite creación de recuadros
 \usepackage{gensymb}       % Simbología común
@@ -134,8 +148,7 @@
 \usepackage[inline]{enumitem} % Permite enumerar ítems
 \usepackage[figure,table,lstlisting]{totalcount} % Contador de objetos
 \usepackage[normalem]{ulem} % Permite tachar y subrayar
-\usepackage[nointegrals]{wasysym} % Contiene caracteres misceláneos (v7.0.4)
-\usepackage[dvipsnames,table,usenames]{xcolor} % Paquete de colores avanzado
+\usepackage[nointegrals]{wasysym} % Contiene caracteres misceláneos
 
 % -----------------------------------------------------------------------------
 % Librerías condicionales
@@ -774,7 +787,7 @@
 \ifthenelse{\equal{\showlinenumbers}{true}}{ % Muestra los números de línea
 	\usepackage[switch,columnwise,running]{lineno}}{
 }
-\usepackage{csquotes} % Citas y comillas, se debe usar después de lineno [6.4.2]
+\usepackage{csquotes} % Citas y comillas
 \ifthenelse{\equal{\compilertype}{pdf2latex}}{
 	\inputencoding{utf8}}{
 }
