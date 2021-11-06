@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      0.1.4 (31/10/2021)
+% Versión:      1.0.0 (05/11/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -44,16 +44,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={31/10/2021},
+		Template.Date={05/11/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Presentacion},
 		Template.Type={Normal},
-		Template.Version.Dev={0.1.4-1-PRES},
-		Template.Version.Hash={E453378590F7FBC19B86D2CB788177F3},
-		Template.Version.Release={0.1.4},
+		Template.Version.Dev={1.0.0-3-PRES},
+		Template.Version.Hash={574D05B0C73DCBA8AE605A958AFD2C3E},
+		Template.Version.Release={1.0.0},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Presentacion},
 		Template.Web.Manual={https://latex.ppizarror.com/presentacion},
 	},
@@ -61,7 +61,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Presentacion v0.1.4 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Presentacion v1.0.0 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -395,9 +395,9 @@
 % -----------------------------------------------------------------------------
 % Configuración elementos matemáticos
 % -----------------------------------------------------------------------------
-\newtheoremstyle{miestilo}{\baselineskip}{3pt}{\itshape}{}{\bfseries}{}{.5em}{}
-\newtheoremstyle{miobs}{\baselineskip}{3pt}{}{}{\bfseries}{}{.5em}{}
-\theoremstyle{miestilo}
+\newtheoremstyle{templatetheorem}{\baselineskip}{3pt}{\itshape}{}{\bfseries}{}{.5em}{}
+\newtheoremstyle{templateobs}{\baselineskip}{3pt}{}{}{\bfseries}{}{.5em}{}
+\theoremstyle{templatetheorem}
 
 % Configura números
 \ifthenelse{\equal{\showsectioncaptionmat}{none}}{
@@ -444,7 +444,7 @@
 }{
 	\throwbadconfig{Valor configuracion incorrecto}{\showsectioncaptionmat}{none,chap,sec,ssec,sssec,ssssec}}}}}}
 }
-\theoremstyle{miobs}
+\theoremstyle{templateobs}
 \newtheorem*{ej}{\namemathej}
 \newtheorem*{obs}{\namemathobs}
 

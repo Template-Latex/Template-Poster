@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Definición de entornos
-% Versión:      0.1.4 (31/10/2021)
+% Versión:      1.0.0 (05/11/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -14,79 +14,79 @@
 %	#2	Estilo de código
 %	#3	Parámetros
 %	#4	Caption
-\newcommand{\coreinitsourcecodep}[4]{
-	\emptyvarerr{\coreinitsourcecodep}{#2}{Estilo de codigo no definido}
-	\checkvalidsourcecodestyle{#2}
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\rightlinenumbers}{
-	}
+\newcommand{\coreinitsourcecodep}[4]{%
+	\emptyvarerr{\coreinitsourcecodep}{#2}{Estilo de codigo no definido}%
+	\checkvalidsourcecodestyle{#2}%
+	\ifthenelse{\equal{\showlinenumbers}{true}}{%
+		\rightlinenumbers}{%
+	}%
 	\lstset{
 		backgroundcolor=\color{\sourcecodebgcolor}
-	}
-	\ifthenelse{\equal{\codecaptiontop}{true}}{
-		\ifx\hfuzz#4\hfuzz
-			\ifx\hfuzz#3\hfuzz
+	}%
+	\ifthenelse{\equal{\codecaptiontop}{true}}{%
+		\ifx\hfuzz#4\hfuzz%
+			\ifx\hfuzz#3\hfuzz%
 				\lstset{
 					escapeinside={(*@}{@*)},
 					style=#2
-				}
-			\else
+				}%
+			\else%
 				\lstset{
 					escapeinside={(*@}{@*)},
 					style=#2,
 					#3
-				}
-			\fi
-		\else
-			\ifx\hfuzz#3\hfuzz
+				}%
+			\fi%
+		\else%
+			\ifx\hfuzz#3\hfuzz%
 				\lstset{
 					caption={#4 #1},
 					captionpos=t,
 					escapeinside={(*@}{@*)},
 					style=#2
-				}
-			\else
+				}%
+			\else%
 				\lstset{
 					caption={#4 #1},
 					captionpos=t,
 					escapeinside={(*@}{@*)},
 					style=#2,
 					#3
-				}
-			\fi
-		\fi
-	}{
-		\ifx\hfuzz#4\hfuzz
-			\ifx\hfuzz#3\hfuzz
+				}%
+			\fi%
+		\fi%
+	}{%
+		\ifx\hfuzz#4\hfuzz%
+			\ifx\hfuzz#3\hfuzz%
 				\lstset{
 					escapeinside={(*@}{@*)},
 					style=#2
-				}
-			\else
+				}%
+			\else%
 				\lstset{
 					escapeinside={(*@}{@*)},
 					style=#2,
 					#3
-				}
-			\fi
-		\else
-			\ifx\hfuzz#3\hfuzz
+				}%
+			\fi%
+		\else%
+			\ifx\hfuzz#3\hfuzz%
 				\lstset{
 					caption={#4 #1},
 					captionpos=b,
 					style=#2
-				}
-			\else
+				}%
+			\else%
 				\lstset{
 					caption={#4 #1},
 					captionpos=b,
 					escapeinside={(*@}{@*)},
 					style=#2,
 					#3
-				}
-			\fi
-		\fi	
-	}
+				}%
+			\fi%
+		\fi%
+	}%
 }
 
 % Inserta código fuente con parámetros
@@ -122,44 +122,44 @@
 %	#1	Label (opcional)
 %	#2	Estilo de código
 %	#3	Caption
-\newcommand{\coreinitsourcecode}[3]{
-	\emptyvarerr{\coreinitsourcecode}{#2}{Estilo de codigo no definido}
-	\checkvalidsourcecodestyle{#2}
-	\ifthenelse{\equal{\showlinenumbers}{true}}{
-		\rightlinenumbers}{
-	}
+\newcommand{\coreinitsourcecode}[3]{%
+	\emptyvarerr{\coreinitsourcecode}{#2}{Estilo de codigo no definido}%
+	\checkvalidsourcecodestyle{#2}%
+	\ifthenelse{\equal{\showlinenumbers}{true}}{%
+		\rightlinenumbers}{%
+	}%
 	\lstset{
 		backgroundcolor=\color{\sourcecodebgcolor}
-	}
+	}%
 	\ifthenelse{\equal{\codecaptiontop}{true}}{
-		\ifx\hfuzz#3\hfuzz
+		\ifx\hfuzz#3\hfuzz%
 			\lstset{
 				escapeinside={(*@}{@*)},
 				style=#2
-			}
-		\else
+			}%
+		\else%
 			\lstset{
 				escapeinside={(*@}{@*)},
 				caption={#3 #1},
 				captionpos=t,
 				style=#2
-			}
-		\fi
-	}{
-		\ifx\hfuzz#3\hfuzz
+			}%
+		\fi%
+	}{%
+		\ifx\hfuzz#3\hfuzz%
 			\lstset{
 				escapeinside={(*@}{@*)},
 				style=#2
-			}
-		\else
+			}%
+		\else%
 			\lstset{
 				escapeinside={(*@}{@*)},
 				caption={#3 #1},
 				captionpos=b,
 				style=#2
-			}
-		\fi
-	}
+			}%
+		\fi%
+	}%
 }
 
 % Inserta código fuente sin parámetros
@@ -186,22 +186,22 @@
 	\lstinputlisting{#3}%
 	\ifthenelse{\equal{\showlinenumbers}{true}}{%
 		\leftlinenumbers}{%
-	}
+	}%
 }
 
 % Itemize en negrita
 %	#1	Parámetros opcionales
-\newenvironment{itemizebf}[1][]{
-	\begin{itemize}[font=\bfseries,#1]
-	}{
+\newenvironment{itemizebf}[1][]{%
+	\begin{itemize}[font=\bfseries,#1]%
+	}{%
 	\end{itemize}
 }
 
 % Enumerate en negrita
 %	#1	Parámetros opcionales
-\newenvironment{enumeratebf}[1][]{
-	\begin{enumerate}[font=\bfseries,#1]
-	}{
+\newenvironment{enumeratebf}[1][]{%
+	\begin{enumerate}[font=\bfseries,#1]%
+	}{%
 	\end{enumerate}
 }
 
@@ -239,20 +239,20 @@
 	\end{samepage}
 	
 	% Restablece globales
-	\global\def\GLOBALenvimageinitialized {false}
+	\global\def\GLOBALenvimageinitialized {false}%
 }
 
 % Crea una sección de imágenes múltiples completa dentro de un multicol
 %	#1	Label (opcional)
 %	#2	Posición de la imagen, "bottom", "top"
 %	#3	Caption
-\newenvironment{imagesmc}[3][]{
+\newenvironment{imagesmc}[3][]{%
 	% Modifica globales
-	\def\envimageslabelvar {#1}
-	\def\envimagesmcpos {#2}
-	\def\envimagescaptionvar {#3}
-	\global\def\GLOBALenvimageinitialized {true}
-	\global\def\GLOBALenvimageadded {false}
+	\def\envimageslabelvar {#1}%
+	\def\envimagesmcpos {#2}%
+	\def\envimagescaptionvar {#3}%
+	\global\def\GLOBALenvimageinitialized {true}%
+	\global\def\GLOBALenvimageadded {false}%
 	\checkinsidemulticol%
 	\checkoutsideappendix%
 	
@@ -284,5 +284,5 @@
 	\setcaptionmargincm{\captionlrmarginmc}%
 	
 	% Restablece globales
-	\global\def\GLOBALenvimageinitialized {false}
+	\global\def\GLOBALenvimageinitialized {false}%
 }

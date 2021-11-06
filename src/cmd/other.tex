@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Funciones para insertar elementos
-% Versión:      0.1.4 (31/10/2021)
+% Versión:      1.0.0 (05/11/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -35,17 +35,17 @@
 
 % Crea una página vacía sin header o footer
 \newcommand{\insertemptypage}{%
-	\clearpage
-	\thispagestyle{empty}
-	\null
-	\clearpage
+	\clearpage%
+	\thispagestyle{empty}%
+	\null%
+	\clearpage%
 }
 
 % Inserta una página vacía, aunque conserva header, footer y numeración
 \newcommand{\insertblankpage}{%
-	\clearpage
-	\null
-	\clearpage
+	\clearpage%
+	\null%
+	\clearpage%
 }
 
 % Ejecuta una función dependiendo si la página es par o impar
@@ -56,7 +56,7 @@
 		#2%
 	}{%
 		#1%
-	}
+	}%
 }
 
 % Añade un archivo pdf con el header
@@ -170,29 +170,29 @@
 				\rowcolors{#1}{}{}%
 			}{%
 				\rowcolors{#1}{\tablerowsecondcolor}{}%
-			}
+			}%
 		}{%
 			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{%
 				\rowcolors{#1}{}{\tablerowfirstcolor}%
 			}{%
 				\rowcolors{#1}{\tablerowsecondcolor}{\tablerowfirstcolor}%
-			}
-		}
+			}%
+		}%
 	}{ % Usa colores alternados
 		\ifthenelse{\equal{\tablerowfirstcolor}{none}}{%
 			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{%
 				\rowcolors{#1}{}{}%
 			}{%
 				\rowcolors{#1}{}{\tablerowsecondcolor}%
-			}
+			}%
 		}{%
 			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{%
 				\rowcolors{#1}{\tablerowfirstcolor}{}%
 			}{%
 				\rowcolors{#1}{\tablerowfirstcolor}{\tablerowsecondcolor}%
-			}
-		}
-	}
+			}%
+		}%
+	}%
 	
 	% Actualiza el índice previo
 	\global\def\GLOBALtablerowcolorindex {#1}%
@@ -206,29 +206,29 @@
 				\rowcolors{\GLOBALtablerowcolorindex}{}{}%
 			}{%
 				\rowcolors{\GLOBALtablerowcolorindex}{\tablerowsecondcolor}{}%
-			}
+			}%
 		}{%
 			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{%
 				\rowcolors{\GLOBALtablerowcolorindex}{}{\tablerowfirstcolor}%
 			}{%
 				\rowcolors{\GLOBALtablerowcolorindex}{\tablerowsecondcolor}{\tablerowfirstcolor}%
-			}
-		}
+			}%
+		}%
 	}{ % Usa colores alternados
 		\ifthenelse{\equal{\tablerowfirstcolor}{none}}{%
 			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{%
 				\rowcolors{\GLOBALtablerowcolorindex}{}{}%
 			}{%
 				\rowcolors{\GLOBALtablerowcolorindex}{}{\tablerowsecondcolor}%
-			}
+			}%
 		}{%
 			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{%
 				\rowcolors{\GLOBALtablerowcolorindex}{\tablerowfirstcolor}{}%
 			}{%
 				\rowcolors{\GLOBALtablerowcolorindex}{\tablerowfirstcolor}{\tablerowsecondcolor}%
-			}
-		}
-	}
+			}%
+		}%
+	}%
 }
 
 % Activa el color de las filas de las tablas
@@ -238,7 +238,7 @@
 		\settablerowcolors{2}%
 	\else%
 		\settablerowcolors{#1}%
-	\fi
+	\fi%
 }
 
 % Desactiva el color de las filas de las tablas
@@ -250,7 +250,7 @@
 		\global\def\GLOBALtablerowcolorswitch {true}%
 	}{%
 		\global\def\GLOBALtablerowcolorswitch {false}%
-	}
+	}%
 	\settablerowcolorslast%
 }
 

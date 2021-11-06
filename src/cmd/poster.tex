@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Funciones exclusivas de Template-Poster
-% Versión:      0.1.4 (31/10/2021)
+% Versión:      1.0.0 (05/11/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -22,11 +22,11 @@
 	\begin{columns}[t]%
 	\begin{column}{\sepwidth}\end{column}%
 	\begin{column}{\colwidth}%
-	}{
+	}{%
 	\end{column}
 	\begin{column}{\sepwidth}\end{column}%
-	\end{columns}%Ç
-	\end{frame}%
+	\end{columns}
+	\end{frame}
 }
 
 % Separador de columnas
@@ -98,7 +98,7 @@
 				\insertlogoleft%
 				\vspace*{\fill}%
 			\else\fi%
-		\end{column}%
+		\end{column}
 		\begin{column}{\dimexpr\paperwidth-\maxlogowidth-\maxlogowidth}%
 			\usebeamerfont{headline}%
 			\vskip3ex%
@@ -131,7 +131,7 @@
 	\ifbeamercolorempty[bg]{headline rule}{}{%
 		\begin{beamercolorbox}[wd=\paperwidth,colsep=0.5ex]{headline rule}\end{beamercolorbox}%
 	}%
-\end{beamercolorbox}%
+\end{beamercolorbox}
 }
 
 % Bloques
@@ -142,12 +142,12 @@
 			\usebeamerfont*{block title}\insertblocktitle%
 			\vskip -1.25ex%
 			\begin{beamercolorbox}[colsep=0.025ex]{block separator}\end{beamercolorbox}%
-		}
-	\end{beamercolorbox}%
+		}%
+	\end{beamercolorbox}
 	{\parskip 0pt \par}%
 	\ifthenelse{\equal{\insertblocktitle}{}}{%
 		\vspace{-1.65\baselineskip}%
-	}{}
+	}{}%
 	\usebeamerfont{block body}%
 	\vskip -0.5ex%
 	\begin{beamercolorbox}[colsep*=0ex]{block body}%
@@ -157,7 +157,7 @@
 	}%
 	\setbeamertemplate{block end}%
 	{%
-	\end{beamercolorbox}%
+	\end{beamercolorbox}
 	\vskip 0pt%
 	\vspace*{2ex}%
 }
@@ -171,12 +171,12 @@
 			\vskip -1.25ex%
 			\begin{beamercolorbox}[colsep=0.025ex]{block alerted separator}\end{beamercolorbox}%
 			\vskip -0.75ex%
-		}
-	\end{beamercolorbox}%
+		}%
+	\end{beamercolorbox}
 	{\parskip 0pt \par}%
 	\ifthenelse{\equal{\insertblocktitle}{}}{%
 		\vspace{-1.65\baselineskip}%
-	}{}
+	}{}%
 	\usebeamerfont{block body}%
 	\vskip -0.5ex%
 	\begin{beamercolorbox}[colsep*=0ex]{block alerted body}%
@@ -189,7 +189,7 @@
 		{%
 		\end{adjustwidth}%
 		\vskip 1.25ex%
-	\end{beamercolorbox}%
+	\end{beamercolorbox}
 	% \vskip 0pt%
 	\vspace*{2ex}%
 }
@@ -203,12 +203,12 @@
 			\vskip -1.25ex%
 			\begin{beamercolorbox}[colsep=0.025ex]{block example separator}\end{beamercolorbox}%
 			\vskip -0.75ex%
-		}
+		}%
 	\end{beamercolorbox}%
 	{\parskip 0pt \par}%
 	\ifthenelse{\equal{\insertblocktitle}{}}{%
 		\vspace{-1.65\baselineskip}%
-	}{}
+	}{}%
 	\usebeamerfont{block body}%
 	\vskip -0.5ex%
 	\begin{beamercolorbox}[colsep*=0ex]{block example body}%
@@ -219,7 +219,7 @@
 		}%
 		\setbeamertemplate{block example end}%
 		{%
-		\end{adjustwidth}%
+		\end{adjustwidth}
 		\vskip 1.25ex%
 	\end{beamercolorbox}%
 	% \vskip 0pt%
@@ -245,6 +245,6 @@
 		\insertfootercontent%
 		\hspace{\sepwidth}%
 		\vspace{1.5ex} %0.75ex
-	\end{beamercolorbox}%
+	\end{beamercolorbox}
 	\else\fi%
 }
