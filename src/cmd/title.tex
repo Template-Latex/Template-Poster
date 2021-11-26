@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Funciones para insertar títulos
-% Versión:      1.0.2 (23/11/2021)
+% Versión:      1.0.3 (26/11/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -105,30 +105,6 @@
 		\setcounter{figure}{0}%
 	}{}%
 	\ifthenelse{\equal{\showsectioncaptiontab}{sssec}}{ % Reinicia tablas
-		\addtocounter{templateTables}{\value{table}}%
-		\setcounter{table}{0}%
-	}{}%
-}{}{}
-
-% Parcha sub-sub-subsecciones
-\pretocmd{\subsubsubsection}{%
-	\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{ % Reinicia código fuente
-		\addtocounter{templateListings}{\value{lstlisting}}%
-		\setcounter{lstlisting}{0}%
-	}{}%
-	\ifthenelse{\equal{\showsectioncaptioneqn}{ssssec}}{ % Reinicia ecuaciones
-		\addtocounter{templateEquations}{\value{equation}}%
-		\setcounter{equation}{0}%
-	}{}%
-	\ifthenelse{\equal{\equationrestart}{ssssec}}{ % Reinicia ecuaciones
-		\addtocounter{templateEquations}{\value{equation}}%
-		\setcounter{equation}{0}%
-	}{}%
-	\ifthenelse{\equal{\showsectioncaptionfig}{ssssec}}{ % Reinicia figuras
-		\addtocounter{templateFigures}{\value{figure}}%
-		\setcounter{figure}{0}%
-	}{}%
-	\ifthenelse{\equal{\showsectioncaptiontab}{ssssec}}{ % Reinicia tablas
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
 	}{}%

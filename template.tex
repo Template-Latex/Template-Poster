@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Núcleo del template
-% Versión:      1.0.2 (23/11/2021)
+% Versión:      1.0.3 (26/11/2021)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -179,6 +179,7 @@
 % -----------------------------------------------------------------------------
 % Librerías con parámetros
 % -----------------------------------------------------------------------------
+\usepackage[export]{adjustbox} % Agrega nuevas etiquetas de posicionado
 \usepackage[makeroom]{cancel} % Cancelar términos en fórmulas
 \usepackage[inline]{enumitem} % Permite enumerar ítems
 \usepackage[figure,table,lstlisting]{totalcount} % Contador de objetos
@@ -1969,6 +1970,7 @@
 }
 
 \global\def\GLOBALimagelink {} % Almacena el link de la imagen
+\global\def\GLOBALimagenextmarginv {0 cm} % Almacena el margen vertical de las imágenes
 
 % Calcula largo hspace
 % Regresión entre 35,46446->9 y 52,68402->13,5
@@ -2000,23 +2002,32 @@
 	}{}%
 	\ifthenelse{\equal{#5}{}}{ % Sin label
 		\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
-			\fbox{\includegraphics[#3]{#2}}%
+			\raisebox{\GLOBALimagenextmarginv}{%
+				\fbox{\includegraphics[#3]{#2}}
+			}%
 		}{ % Con link
-			\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
+			\raisebox{\GLOBALimagenextmarginv}{%
+				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
+			}%
 		}%
 	}{ % Con label
 		\ifthenelse{\equal{\GLOBALimagelink}{}}{ % Sin link
 			\subfloat[#5]{%
-				\fbox{\includegraphics[#3]{#2}}#1%
+				\raisebox{\GLOBALimagenextmarginv}{%
+					\fbox{\includegraphics[#3]{#2}}#1%
+				}%
 			}%
 		}{ % Con link
 			\subfloat[#5]{%
-				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}#1}%
+				\raisebox{\GLOBALimagenextmarginv}{%
+					\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}#1}%
+				}%
 			}%
 		}%
 	}%
 	\endgroup%
 	\global\def\GLOBALenvimageadded {true}%
+	\global\def\GLOBALimagenextmarginv {0 cm}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda
@@ -2064,36 +2075,53 @@
 	\ifthenelse{\equal{#7}{}}{ % Sin label
 		\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
 			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
-				\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
+				\raisebox{\GLOBALimagenextmarginv}{%
+					\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
+				}%
 			}{ % Sin autoplay
-				\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
+				\raisebox{\GLOBALimagenextmarginv}{%
+					\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
+				}%
 			}%
 		}{ % Sin loop
 			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
-				\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
+				\raisebox{\GLOBALimagenextmarginv}{%
+					\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
+				}%
 			}{ % Sin autoplay
-				\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
+				\raisebox{\GLOBALimagenextmarginv}{%
+					\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
+				}%
 			}%
 		}%
 	}{ % Con label
 		\subfloat[#7]{%
 			\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
 				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
-					\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+					\raisebox{\GLOBALimagenextmarginv}{%
+						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+					}%
 				}{ % Sin autoplay
-					\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}#1}%
+					\raisebox{\GLOBALimagenextmarginv}{%
+						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}#1}%
+					}%
 				}%
 			}{ % Sin loop
 				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
-					\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+					\raisebox{\GLOBALimagenextmarginv}{%
+						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+					}%
 				}{ % Sin autoplay
-					\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}#1}%
+					\raisebox{\GLOBALimagenextmarginv}{%
+						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}#1}%
+					}%
 				}%
 			}%
 		}%
 	}%
 	\endgroup%
 	\global\def\GLOBALenvimageadded {true}%
+	\global\def\GLOBALimagenextmarginv {0 cm}%
 }
 
 % Añade una imagen a un env "image" con borde sin leyenda animada
@@ -2177,6 +2205,13 @@
 	\checkonlyonenvimage%
 	\global\def\GLOBALenvimageadded {false}%
 	~ \\ \vspace*{#1}%
+}
+
+% Establece el margen vertical de la siguiente imagen
+%	#1	Margen vertical
+\newcommand{\setnextimagevmargin}[1]{%
+	\emptyvarerr{\setimagesvmargin}{#1}{Tamaño del margen}%
+	\global\def\GLOBALimagenextmarginv {#1}%
 }
 
 % Insertar una imagen
@@ -2974,30 +3009,6 @@
 		\setcounter{figure}{0}%
 	}{}%
 	\ifthenelse{\equal{\showsectioncaptiontab}{sssec}}{ % Reinicia tablas
-		\addtocounter{templateTables}{\value{table}}%
-		\setcounter{table}{0}%
-	}{}%
-}{}{}
-
-% Parcha sub-sub-subsecciones
-\pretocmd{\subsubsubsection}{%
-	\ifthenelse{\equal{\showsectioncaptioncode}{ssssec}}{ % Reinicia código fuente
-		\addtocounter{templateListings}{\value{lstlisting}}%
-		\setcounter{lstlisting}{0}%
-	}{}%
-	\ifthenelse{\equal{\showsectioncaptioneqn}{ssssec}}{ % Reinicia ecuaciones
-		\addtocounter{templateEquations}{\value{equation}}%
-		\setcounter{equation}{0}%
-	}{}%
-	\ifthenelse{\equal{\equationrestart}{ssssec}}{ % Reinicia ecuaciones
-		\addtocounter{templateEquations}{\value{equation}}%
-		\setcounter{equation}{0}%
-	}{}%
-	\ifthenelse{\equal{\showsectioncaptionfig}{ssssec}}{ % Reinicia figuras
-		\addtocounter{templateFigures}{\value{figure}}%
-		\setcounter{figure}{0}%
-	}{}%
-	\ifthenelse{\equal{\showsectioncaptiontab}{ssssec}}{ % Reinicia tablas
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
 	}{}%
@@ -5133,16 +5144,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={23/11/2021},
+		Template.Date={26/11/2021},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Presentacion},
 		Template.Type={Normal},
-		Template.Version.Dev={1.0.2-PRES},
-		Template.Version.Hash={1FD773B36749DD5C24DF8DEAA3B3C8F0},
-		Template.Version.Release={1.0.2},
+		Template.Version.Dev={1.0.3-PRES},
+		Template.Version.Hash={51B23FA176E865E4AEC40F067FEF18F7},
+		Template.Version.Release={1.0.3},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Presentacion},
 		Template.Web.Manual={https://latex.ppizarror.com/presentacion},
 	},
@@ -5150,7 +5161,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Presentacion v1.0.2 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Presentacion v1.0.3 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
