@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Configuración inicial del template
-% Versión:      1.0.5 (24/12/2021)
+% Versión:      1.0.6 (10/01/2022)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -44,16 +44,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={24/12/2021},
+		Template.Date={10/01/2022},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Presentacion},
 		Template.Type={Normal},
-		Template.Version.Dev={1.0.5-PRES},
-		Template.Version.Hash={37E6C9C57A4C9224E5E26824B5FB26F4},
-		Template.Version.Release={1.0.5},
+		Template.Version.Dev={1.0.6-PRES},
+		Template.Version.Hash={56ABFC2033D29FC6A8846B3AC7E62659},
+		Template.Version.Release={1.0.6},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Presentacion},
 		Template.Web.Manual={https://latex.ppizarror.com/presentacion},
 	},
@@ -61,7 +61,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Presentacion v1.0.5 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Presentacion v1.0.6 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -550,6 +550,11 @@
 \setlength\leftmarginii{\sitemsmarginii pt}
 \setlength\leftmarginiii{\sitemsmarginiii pt}
 \setlength\leftmarginiv{\sitemsmarginiv pt}
+
+% -----------------------------------------------------------------------------
+% Chequea que ciertos módulos no hayan sido cargados antes del inicio del documento
+% -----------------------------------------------------------------------------
+\checkmodulenotloaded{tcolorbox}
 
 % -----------------------------------------------------------------------------
 % Configura métodos aplicados al iniciar el documento
