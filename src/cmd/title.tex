@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Funciones para insertar títulos
-% Versión:      1.0.6 (10/01/2022)
+% Versión:      1.0.7 (19/03/2022)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -8,30 +8,6 @@
 %
 % Manual template: [https://latex.ppizarror.com/poster]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
-
-% Parcha el formato de capítulos
-\pretocmd{\chapter}{%
-	\ifthenelse{\equal{\showsectioncaptioncode}{chap}}{ % Reinicia código fuente
-		\addtocounter{templateListings}{\value{lstlisting}}%
-		\setcounter{lstlisting}{0}%
-	}{}%
-	\ifthenelse{\equal{\showsectioncaptioneqn}{chap}}{ % Reinicia ecuaciones
-		\addtocounter{templateEquations}{\value{equation}}%
-		\setcounter{equation}{0}%
-	}{}%
-	\ifthenelse{\equal{\equationrestart}{chap}}{ % Reinicia ecuaciones
-		\addtocounter{templateEquations}{\value{equation}}%
-		\setcounter{equation}{0}%
-	}{}%
-	\ifthenelse{\equal{\showsectioncaptionfig}{chap}}{ % Reinicia figuras
-		\addtocounter{templateFigures}{\value{figure}}%
-		\setcounter{figure}{0}%
-	}{}%
-	\ifthenelse{\equal{\showsectioncaptiontab}{chap}}{ % Reinicia tablas
-		\addtocounter{templateTables}{\value{table}}%
-		\setcounter{table}{0}%
-	}{}%
-}{}{}
 
 % Parcha el formato de secciones al pasar desde una anum, vuelve a activar número
 % de la sección
