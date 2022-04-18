@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Funciones para insertar títulos
-% Versión:      1.0.8 (09/04/2022)
+% Versión:      1.0.9 (17/04/2022)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -85,3 +85,30 @@
 		\setcounter{table}{0}%
 	}{}%
 }{}{}
+
+% Entorno que permite desactivar los capítulos
+\makeatletter
+\newcommand*\coredisabledchapter{%
+	\@ifstar{\coredisabledchapterstar}{\@dblarg\coredisabledchapternostar}}
+\newcommand*\coredisabledchapterstar[1]{%
+	\noindent\textcolor{red}{Error (chapter):} \newline#1%
+	\throwwarning{La insercion de capitulos esta desactivada}%
+}
+\def\coredisabledchapternostar[#1]#2{%
+	\noindent\textcolor{red}{Error (chapter):} #1%
+	\throwwarning{La insercion de capitulos esta desactivada}%
+}
+\makeatother
+\let\oldchapter\chapter
+
+% Desactiva los capítulos
+\newcommand{\disablechapter}{%
+	\let\chapter\coredisabledchapter%
+	\global\def\GLOBALtitlechapterenabled {false}%
+}
+
+% Activa los capítulos
+\newcommand{\enablechapter}{%
+	\let\chapter\oldchapter%
+	\global\def\GLOBALtitlechapterenabled {true}%
+}
