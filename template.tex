@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Núcleo del template
-% Versión:      1.1.0 (25/04/2022)
+% Versión:      1.1.1 (09/06/2022)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -3754,6 +3754,14 @@
 	\end{beamercolorbox}
 	\else\fi%
 }
+% Crea un entorno para definir el tamaño de bloque
+%	#1	Tamaño de fuente en pt
+\newenvironment{fontsizeblock}[1][\documentfontsize]{
+	\changefontsizes{#1 pt}
+}{
+	\changefontsizes{\documentfontsize pt}
+}
+
 % Inicia código fuente con parámetros
 %	#1	Label (opcional)
 %	#2	Estilo de código
@@ -5173,16 +5181,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={25/04/2022},
+		Template.Date={09/06/2022},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Presentacion},
 		Template.Type={Normal},
-		Template.Version.Dev={1.1.0-PRES},
-		Template.Version.Hash={3976853B5E51D1470CEDFA53FCCAB483},
-		Template.Version.Release={1.1.0},
+		Template.Version.Dev={1.1.1-PRES},
+		Template.Version.Hash={69FEB09EFACAFA22BFA8D8DA69A79CDC},
+		Template.Version.Release={1.1.1},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Presentacion},
 		Template.Web.Manual={https://latex.ppizarror.com/presentacion},
 	},
@@ -5190,7 +5198,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Presentacion v1.1.0 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Presentacion v1.1.1 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -7084,11 +7092,6 @@
 	}{
 		\throwbadconfig{Tipo numero subtabla desconocido}{\captionnumsubtable}{arabic,alph,Alph,roman,Roman}}}}}
 	}
-	
-	% -------------------------------------------------------------------------
-	% Configura capítulos
-	% -------------------------------------------------------------------------
-	\disablechapter
 	
 	% -------------------------------------------------------------------------
 	% Se restablecen números de página y secciones

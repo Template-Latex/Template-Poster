@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Definición de entornos
-% Versión:      1.1.0 (25/04/2022)
+% Versión:      1.1.1 (09/06/2022)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -8,6 +8,14 @@
 %
 % Manual template: [https://latex.ppizarror.com/poster]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% Crea un entorno para definir el tamaño de bloque
+%	#1	Tamaño de fuente en pt
+\newenvironment{fontsizeblock}[1][\documentfontsize]{
+	\changefontsizes{#1 pt}
+}{
+	\changefontsizes{\documentfontsize pt}
+}
 
 % Inicia código fuente con parámetros
 %	#1	Label (opcional)
