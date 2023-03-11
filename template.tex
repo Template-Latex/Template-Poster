@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Núcleo del template
-% Versión:      1.1.5 (10/03/2023)
+% Versión:      1.1.6 (11/03/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -2039,15 +2039,15 @@
 		}%
 	}{ % Con label
 		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{ % Sin link
-			\subfloat[#5]{%
+			\subfloat[#5#1]{%
 				\raisebox{\GLOBALimagenextmarginv}{%
-					\fbox{\includegraphics[#3]{#2}}#1%
+					\fbox{\includegraphics[#3]{#2}}%
 				}%
 			}%
 		}{ % Con link
-			\subfloat[#5]{%
+			\subfloat[#5#1]{%
 				\raisebox{\GLOBALimagenextmarginv}{%
-					\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}#1}%
+					\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
 				}%
 			}%
 		}%
@@ -2122,25 +2122,25 @@
 			}%
 		}%
 	}{ % Con label
-		\subfloat[#7]{%
+		\subfloat[#7#1]{%
 			\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
 				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
-						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}{ % Sin autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
-						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}#1}%
+						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}%
 			}{ % Sin loop
 				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
-						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}#1}%
+						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}{ % Sin autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
-						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}#1}%
+						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}%
 			}%
@@ -5183,16 +5183,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={10/03/2023},
+		Template.Date={11/03/2023},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Presentacion},
 		Template.Type={Normal},
-		Template.Version.Dev={1.1.5-PRES},
-		Template.Version.Hash={5D98B34D211772EFEC0E8B20FFE8F23C},
-		Template.Version.Release={1.1.5},
+		Template.Version.Dev={1.1.6-PRES},
+		Template.Version.Hash={1C1DD20D973509446851321FC0FA092D},
+		Template.Version.Release={1.1.6},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Presentacion},
 		Template.Web.Manual={https://latex.ppizarror.com/presentacion},
 	},
@@ -5200,7 +5200,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Presentacion v1.1.5 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Presentacion v1.1.6 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
