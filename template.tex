@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Núcleo del template
-% Versión:      1.1.6 (11/03/2023)
+% Versión:      1.1.7 (12/03/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -2422,56 +2422,56 @@
 	\setcaptionmargincm{\captionlrmarginmc}%
 	\ifthenelse{\equal{#5}{bottom}}{%
 		\begin{samepage}%
-		\begin{figure*}[b]
+		\begin{figure*}[!b]
 	}{%
 	\ifthenelse{\equal{#5}{top}}{%
 		\begin{samepage}%
-		\begin{figure*}[t]
+		\begin{figure*}[!t]
 	}{%
 	\ifthenelse{\equal{#5}{fixed2}}{%
 		\end{multicols}
 		\begin{samepage}%
-		\begin{figure*}[h]
+		\begin{figure*}[!h]
 	}{%
 	\ifthenelse{\equal{#5}{fixed2b}}{%
 		\end{multicols}
 		\begin{samepage}%
-		\begin{figure*}[b]
+		\begin{figure*}[!b]
 	}{%
 	\ifthenelse{\equal{#5}{fixed2t}}{%
 		\end{multicols}
 		\begin{samepage}%
-		\begin{figure*}[t]
+		\begin{figure*}[!t]
 	}{%
 	\ifthenelse{\equal{#5}{fixed3}}{%
 		\end{multicols}
 		\begin{samepage}%
-		\begin{figure*}[h]
+		\begin{figure*}[!h]
 	}{%
 	\ifthenelse{\equal{#5}{fixed3b}}{%
 		\end{multicols}
 		\begin{samepage}%
-		\begin{figure*}[b]
+		\begin{figure*}[!b]
 	}{%
 	\ifthenelse{\equal{#5}{fixed3t}}{%
 		\end{multicols}
 		\begin{samepage}%
-		\begin{figure*}[t]
+		\begin{figure*}[!t]
 	}{%
 	\ifthenelse{\equal{#5}{fixed4}}{%
 		\end{multicols}
 		\begin{samepage}%
-		\begin{figure*}[h]
+		\begin{figure*}[!h]
 	}{%
 	\ifthenelse{\equal{#5}{fixed4b}}{%
 		\end{multicols}
 		\begin{samepage}%
-		\begin{figure*}[h]
+		\begin{figure*}[!h]
 	}{%
 	\ifthenelse{\equal{#5}{fixed4t}}{%
 		\end{multicols}
 		\begin{samepage}%
-		\begin{figure*}[h]
+		\begin{figure*}[!h]
 	}{%
 		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top,fixed2,fixed2b,fixed2t,fixed3,fixed3b,fixed3t,fixed4,fixed4b,fixed4t}
 		\stop}}}}}}}}}}
@@ -4028,10 +4028,10 @@
 	
 	% Inicia la figura
 	\ifthenelse{\equal{#2}{bottom}}{%
-		\begin{figure*}[b] \centering%
+		\begin{figure*}[!b] \centering%
 	}{%
 	\ifthenelse{\equal{#2}{top}}{%
-		\begin{figure*}[t] \centering%
+		\begin{figure*}[!t] \centering%
 	}{%
 		\errmessage{LaTeX Warning: Posicion de imagen invalida, valores esperados: bottom,top}
 		\stop
@@ -5199,16 +5199,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={11/03/2023},
+		Template.Date={12/03/2023},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Presentacion},
 		Template.Type={Normal},
-		Template.Version.Dev={1.1.6-1-PRES},
-		Template.Version.Hash={706B5D53AA8B5E68D64AACD215B3C02B},
-		Template.Version.Release={1.1.6},
+		Template.Version.Dev={1.1.7-PRES},
+		Template.Version.Hash={B6CDF0407BB981693CA8D10C8D8EC1DF},
+		Template.Version.Release={1.1.7},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Presentacion},
 		Template.Web.Manual={https://latex.ppizarror.com/presentacion},
 	},
@@ -5216,7 +5216,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Presentacion v1.1.6 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Presentacion v1.1.7 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
