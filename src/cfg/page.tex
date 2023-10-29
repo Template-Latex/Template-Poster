@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Configuración de página
-% Versión:      1.2.1 (26/10/2023)
+% Versión:      1.2.2 (29/10/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -9,7 +9,7 @@
 % Manual template: [https://latex.ppizarror.com/poster]
 % Licencia MIT:    [https://opensource.org/licenses/MIT]
 
-\newcommand{\templatePagecfg}{
+\newcommand{\templatePagecfg}{%
 	
 	% -------------------------------------------------------------------------
 	% Numeración de páginas
@@ -25,8 +25,8 @@
 	% -------------------------------------------------------------------------
 	% Se define el punto decimal
 	% -------------------------------------------------------------------------
-	\ifthenelse{\equal{\pointdecimal}{true}}{
-		\decimalpoint}{
+	\ifthenelse{\equal{\pointdecimal}{true}}{%
+		\decimalpoint}{%
 	}
 	
 	% -------------------------------------------------------------------------

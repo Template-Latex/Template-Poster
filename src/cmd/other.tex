@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Funciones para insertar elementos
-% Versión:      1.2.1 (26/10/2023)
+% Versión:      1.2.2 (29/10/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -15,11 +15,11 @@
 }
 
 % Crea un salto de columna en el entorno multicol
-\ifthenelse{\isundefined{\newcolumn}}{
+\ifthenelse{\isundefined{\newcolumn}}{%
 	\newcommand{\newcolumn}{%
 		\checkinsidemulticol\vfill\null\columnbreak%
 	}
-}{
+}{%
 	\renewcommand{\newcolumn}{%
 		\checkinsidemulticol\vfill\null\columnbreak%
 	}
@@ -205,7 +205,7 @@
 }
 
 % Alterna los colores de las tablas a la última ejecución
-\newcommand{\settablerowcolorslast}{
+\newcommand{\settablerowcolorslast}{%
 	\ifthenelse{\equal{\GLOBALtablerowcolorswitch}{false}}{ % Usa colores normales
 		\ifthenelse{\equal{\tablerowfirstcolor}{none}}{%
 			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{%
