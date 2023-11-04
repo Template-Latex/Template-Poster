@@ -1,6 +1,6 @@
 % Template:     Poster LaTeX
 % Documento:    Núcleo del template
-% Versión:      1.2.2 (29/10/2023)
+% Versión:      1.2.3 (04/11/2023)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -13,35 +13,16 @@
 % CONFIGURACIONES
 % -----------------------------------------------------------------------------
 % Definiciones previas
-\colorlet{numb}{magenta!60!black}
-\colorlet{punct}{red!60!black}
-\definecolor{beige}{RGB}{210,194,149}
-\definecolor{beigegray}{RGB}{95,87,79}
-\definecolor{boxgray}{RGB}{238,235,233}
-\definecolor{cardinalred}{RGB}{140,21,21}
-\definecolor{coolgray}{RGB}{77,79,83}
-\definecolor{darkbeige}{RGB}{179,153,93}
-\definecolor{darkcardinal}{RGB}{94,48,50}
-\definecolor{darkcyan}{RGB}{0,124,146}
-\definecolor{darkorange}{RGB}{168,101,12}
-\definecolor{darkpurple}{RGB}{83,40,79}
-\definecolor{delim}{RGB}{20,105,176}
-\definecolor{dkcyan}{RGB}{0,123,167}
-\definecolor{dkgray}{RGB}{90,90,90}
-\definecolor{dkgreen}{RGB}{0,150,0}
-\definecolor{footergray}{RGB}{199,209,197}
-\definecolor{gray}{RGB}{127,127,127}
-\definecolor{lbrown}{RGB}{255,252,249}
-\definecolor{lgray}{RGB}{240,240,240}
-\definecolor{lightcardinal}{RGB}{141,60,30}
-\definecolor{lightgray}{RGB}{240,240,240}
-\definecolor{mauve}{RGB}{150,0,210}
-\definecolor{mitdarkgray}{cmyk}{0.48,0.39,0.39,0.04}
-\definecolor{mitlightgray}{cmyk}{0.24,0.20,0.20,0}
-\definecolor{mitred}{cmyk}{0.24,1,0.78,0.17}
-\definecolor{ocre}{RGB}{243,102,25}
-\definecolor{skyblue}{RGB}{0,152,219}
-\definecolor{treegreen}{RGB}{0,155,118}
+\definecolor{cardinalred}{RGB}{140, 21, 21}
+\definecolor{dkcyan}{RGB}{0, 123, 167}
+\definecolor{dkgray}{RGB}{90, 90, 90}
+\definecolor{dkgreen}{RGB}{0, 150, 0}
+\definecolor{gray}{RGB}{127, 127, 127}
+\definecolor{lbrown}{RGB}{255, 252, 249}
+\definecolor{lgray}{RGB}{240, 240, 240}
+\definecolor{mauve}{RGB}{150, 0, 210}
+\definecolor{mitred}{RGB}{161, 0, 47}
+\definecolor{ocre}{RGB}{243, 102, 25}
 
 % Definiciones en configuraciones
 \def\iitembcirc {\raisebox{0.55\height}{\scriptsize$\bullet$}}
@@ -100,7 +81,7 @@
 \usepackage{tracklang}
 \IfTrackedLanguage{spanish}{
 	\usepackage[es-nosectiondot,es-lcroman,es-noquoting]{babel}
-}{ % english, otros
+}{% english, otros
 	\usepackage{babel}
 }
 
@@ -829,7 +810,7 @@
 % Finales
 % -----------------------------------------------------------------------------
 \usepackage[T1]{fontenc} % Caracteres acentuados
-\ifthenelse{\equal{\showlayoutlines}{true}}{ % Muestra las líneas del layout
+\ifthenelse{\equal{\showlayoutlines}{true}}{% Muestra las líneas del layout
 	\usepackage{showframe}}{
 }
 \def\showlinenumbers {true}
@@ -1437,7 +1418,7 @@
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
 
 % Definición de operadores matemáticos de asignación (Typeset assigments)
-\ifthenelse{\equal{\fontdocument}{step}}{}{ % Ya definidos en STEP
+\ifthenelse{\equal{\fontdocument}{step}}{}{% Ya definidos en STEP
 	\newcommand{\asteq}{\ensuremath{\mathrel{{*}{=}}}}
 	\newcommand{\eqeq}{\ensuremath{\mathrel{{=}{=}}}}
 }
@@ -2040,25 +2021,25 @@
 	\setlength{\fboxrule}{#4 pt}%
 	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
 		\hspace{\dimexpr \marginimagemultright cm -\coreimageshspace}%
-	}{}%
+	}{} % Obs: No sacar el espacio en blanco, tampoco en sin/con label
 	\ifthenelse{\equal{#5}{\GLOBALemptyvar}}{ % Sin label
-		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{ % Sin link
+		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{% Sin link
 			\raisebox{\GLOBALimagenextmarginv}{%
 				\fbox{\includegraphics[#3]{#2}}%
 			}%
-		}{ % Con link
+		}{% Con link
 			\raisebox{\GLOBALimagenextmarginv}{%
 				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
 			}%
 		}%
 	}{ % Con label
-		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{ % Sin link
+		\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{% Sin link
 			\subfloat[#5#1]{%
 				\raisebox{\GLOBALimagenextmarginv}{%
 					\fbox{\includegraphics[#3]{#2}}%
 				}%
 			}%
-		}{ % Con link
+		}{% Con link
 			\subfloat[#5#1]{%
 				\raisebox{\GLOBALimagenextmarginv}{%
 					\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
@@ -2113,46 +2094,46 @@
 	\ifthenelse{\equal{\GLOBALenvimageadded}{true}}{%
 		\hspace{\dimexpr \marginimagemultright cm - \coreimageshspace}%
 	}{}%
-	\ifthenelse{\equal{#7}{\GLOBALemptyvar}}{ % Sin label
-		\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
-			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+	\ifthenelse{\equal{#7}{\GLOBALemptyvar}}{% Sin label
+		\ifthenelse{\equal{\animatedimageloop}{true}}{% Con loop
+			\ifthenelse{\equal{\animatedimageautoplay}{true}}{% Con autoplay
 				\raisebox{\GLOBALimagenextmarginv}{%
 					\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
 				}%
-			}{ % Sin autoplay
+			}{% Sin autoplay
 				\raisebox{\GLOBALimagenextmarginv}{%
 					\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
 				}%
 			}%
-		}{ % Sin loop
-			\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+		}{% Sin loop
+			\ifthenelse{\equal{\animatedimageautoplay}{true}}{% Con autoplay
 				\raisebox{\GLOBALimagenextmarginv}{%
 					\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
 				}%
-			}{ % Sin autoplay
+			}{% Sin autoplay
 				\raisebox{\GLOBALimagenextmarginv}{%
 					\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
 				}%
 			}%
 		}%
-	}{ % Con label
+	}{% Con label
 		\subfloat[#7#1]{%
-			\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
-				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+			\ifthenelse{\equal{\animatedimageloop}{true}}{% Con loop
+				\ifthenelse{\equal{\animatedimageautoplay}{true}}{% Con autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
 						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
 					}%
-				}{ % Sin autoplay
+				}{% Sin autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
 						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}%
-			}{ % Sin loop
-				\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+			}{% Sin loop
+				\ifthenelse{\equal{\animatedimageautoplay}{true}}{% Con autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
 						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
 					}%
-				}{ % Sin autoplay
+				}{% Sin autoplay
 					\raisebox{\GLOBALimagenextmarginv}{%
 						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
 					}%
@@ -2289,9 +2270,9 @@
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#4 pt}%
 			\centering%
-			\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{ % Sin link
+			\ifthenelse{\equal{\GLOBALimagelink}{\GLOBALemptyvar}}{% Sin link
 				\fbox{\includegraphics[#3]{#2}}%
-			}{ % Con link
+			}{% Con link
 				\fbox{\href{\GLOBALimagelink}{\includegraphics[#3]{#2}}}%
 			}%
 		\endgroup%
@@ -2341,31 +2322,31 @@
 			\setlength{\fboxsep}{0 pt}%
 			\setlength{\fboxrule}{#6 pt}%
 			\centering%
-			\ifthenelse{\equal{\animatedimagecontrols}{true}}{ % Muestra los controles
-				\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
-					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+			\ifthenelse{\equal{\animatedimagecontrols}{true}}{% Muestra los controles
+				\ifthenelse{\equal{\animatedimageloop}{true}}{% Con loop
+					\ifthenelse{\equal{\animatedimageautoplay}{true}}{% Con autoplay
 						\fbox{\animategraphics[controls,loop,autoplay,#3]{#4}{#2-}{0}{#5}}%	
-					}{ % Sin autoplay
+					}{% Sin autoplay
 						\fbox{\animategraphics[controls,loop,#3]{#4}{#2-}{0}{#5}}%
 					}%
-				}{ % Sin loop
-					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+				}{% Sin loop
+					\ifthenelse{\equal{\animatedimageautoplay}{true}}{% Con autoplay
 						\fbox{\animategraphics[controls,autoplay,#3]{#4}{#2-}{0}{#5}}%
-					}{ % Sin autoplay
+					}{% Sin autoplay
 						\fbox{\animategraphics[controls,#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}%
-			}{ % Sin controles
-				\ifthenelse{\equal{\animatedimageloop}{true}}{ % Con loop
-					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+			}{% Sin controles
+				\ifthenelse{\equal{\animatedimageloop}{true}}{% Con loop
+					\ifthenelse{\equal{\animatedimageautoplay}{true}}{% Con autoplay
 						\fbox{\animategraphics[loop,autoplay,#3]{#4}{#2-}{0}{#5}}%
-					}{ % Sin autoplay
+					}{% Sin autoplay
 						\fbox{\animategraphics[loop,#3]{#4}{#2-}{0}{#5}}%
 					}%
-				}{ % Sin loop
-					\ifthenelse{\equal{\animatedimageautoplay}{true}}{ % Con autoplay
+				}{% Sin loop
+					\ifthenelse{\equal{\animatedimageautoplay}{true}}{% Con autoplay
 						\fbox{\animategraphics[autoplay,#3]{#4}{#2-}{0}{#5}}%
-					}{ % Sin autoplay
+					}{% Sin autoplay
 						\fbox{\animategraphics[#3]{#4}{#2-}{0}{#5}}%
 					}%
 				}%
@@ -2964,23 +2945,23 @@
 % Parcha el formato de secciones al pasar desde una anum, vuelve a activar número
 % de la sección
 \pretocmd{\section}{%
-	\ifthenelse{\equal{\showsectioncaptioncode}{sec}}{ % Reinicia código fuente
+	\ifthenelse{\equal{\showsectioncaptioncode}{sec}}{% Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptioneqn}{sec}}{ % Reinicia ecuaciones
+	\ifthenelse{\equal{\showsectioncaptioneqn}{sec}}{% Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
 	}{}%
-	\ifthenelse{\equal{\equationrestart}{sec}}{ % Reinicia ecuaciones
+	\ifthenelse{\equal{\equationrestart}{sec}}{% Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptionfig}{sec}}{ % Reinicia figuras
+	\ifthenelse{\equal{\showsectioncaptionfig}{sec}}{% Reinicia figuras
 		\addtocounter{templateFigures}{\value{figure}}%
 		\setcounter{figure}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptiontab}{sec}}{ % Reinicia tablas
+	\ifthenelse{\equal{\showsectioncaptiontab}{sec}}{% Reinicia tablas
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
 	}{}%
@@ -2989,23 +2970,23 @@
 % Comienza nueva subsección, si está dentro de una sectionanum entonces no dibuja el
 % número de sección, si no entonces dibuja el número de forma normal
 \pretocmd{\subsection}{%
-	\ifthenelse{\equal{\showsectioncaptioncode}{ssec}}{ % Reinicia código fuente
+	\ifthenelse{\equal{\showsectioncaptioncode}{ssec}}{% Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptioneqn}{ssec}}{ % Reinicia ecuaciones
+	\ifthenelse{\equal{\showsectioncaptioneqn}{ssec}}{% Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
 	}{}%
-	\ifthenelse{\equal{\equationrestart}{ssec}}{ % Reinicia ecuaciones
+	\ifthenelse{\equal{\equationrestart}{ssec}}{% Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptionfig}{ssec}}{ % Reinicia figuras
+	\ifthenelse{\equal{\showsectioncaptionfig}{ssec}}{% Reinicia figuras
 		\addtocounter{templateFigures}{\value{figure}}%
 		\setcounter{figure}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptiontab}{ssec}}{ % Reinicia tablas
+	\ifthenelse{\equal{\showsectioncaptiontab}{ssec}}{% Reinicia tablas
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
 	}{}%
@@ -3016,23 +2997,23 @@
 %	- si no, entonces puede estar dentro de una sección sin número o no, en ese caso
 %	  debe evaluar ambas posibilidades
 \pretocmd{\subsubsection}{%
-	\ifthenelse{\equal{\showsectioncaptioncode}{sssec}}{ % Reinicia código fuente
+	\ifthenelse{\equal{\showsectioncaptioncode}{sssec}}{% Reinicia código fuente
 		\addtocounter{templateListings}{\value{lstlisting}}%
 		\setcounter{lstlisting}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptioneqn}{sssec}}{ % Reinicia ecuaciones
+	\ifthenelse{\equal{\showsectioncaptioneqn}{sssec}}{% Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
 	}{}%
-	\ifthenelse{\equal{\equationrestart}{sssec}}{ % Reinicia ecuaciones
+	\ifthenelse{\equal{\equationrestart}{sssec}}{% Reinicia ecuaciones
 		\addtocounter{templateEquations}{\value{equation}}%
 		\setcounter{equation}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptionfig}{sssec}}{ % Reinicia figuras
+	\ifthenelse{\equal{\showsectioncaptionfig}{sssec}}{% Reinicia figuras
 		\addtocounter{templateFigures}{\value{figure}}%
 		\setcounter{figure}{0}%
 	}{}%
-	\ifthenelse{\equal{\showsectioncaptiontab}{sssec}}{ % Reinicia tablas
+	\ifthenelse{\equal{\showsectioncaptiontab}{sssec}}{% Reinicia tablas
 		\addtocounter{templateTables}{\value{table}}%
 		\setcounter{table}{0}%
 	}{}%
@@ -3226,7 +3207,7 @@
 %	#1	Posición inicial del inicio de colores
 \newcommand{\settablerowcolors}[1]{%
 	\emptyvarerr{\settablerowcolors}{#1}{Posicion de fila no definida}%
-	\ifthenelse{\equal{\GLOBALtablerowcolorswitch}{false}}{ % Usa colores normales
+	\ifthenelse{\equal{\GLOBALtablerowcolorswitch}{false}}{% Usa colores normales
 		\ifthenelse{\equal{\tablerowfirstcolor}{none}}{%
 			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{%
 				\rowcolors{#1}{}{}%
@@ -3240,7 +3221,7 @@
 				\rowcolors{#1}{\tablerowsecondcolor}{\tablerowfirstcolor}%
 			}%
 		}%
-	}{ % Usa colores alternados
+	}{% Usa colores alternados
 		\ifthenelse{\equal{\tablerowfirstcolor}{none}}{%
 			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{%
 				\rowcolors{#1}{}{}%
@@ -3262,7 +3243,7 @@
 
 % Alterna los colores de las tablas a la última ejecución
 \newcommand{\settablerowcolorslast}{%
-	\ifthenelse{\equal{\GLOBALtablerowcolorswitch}{false}}{ % Usa colores normales
+	\ifthenelse{\equal{\GLOBALtablerowcolorswitch}{false}}{% Usa colores normales
 		\ifthenelse{\equal{\tablerowfirstcolor}{none}}{%
 			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{%
 				\rowcolors{\GLOBALtablerowcolorindex}{}{}%
@@ -3276,7 +3257,7 @@
 				\rowcolors{\GLOBALtablerowcolorindex}{\tablerowsecondcolor}{\tablerowfirstcolor}%
 			}%
 		}%
-	}{ % Usa colores alternados
+	}{% Usa colores alternados
 		\ifthenelse{\equal{\tablerowfirstcolor}{none}}{%
 			\ifthenelse{\equal{\tablerowsecondcolor}{none}}{%
 				\rowcolors{\GLOBALtablerowcolorindex}{}{}%
@@ -4380,13 +4361,13 @@
 
 % JSON
 \lstdefinestyle{json}{
-	literate=*{0}{{{\color{numb}0}}}{1}{1}{{{\color{numb}1}}}{1}{2}
-	{{{\color{numb}2}}}{1}{3}{{{\color{numb}3}}}{1}{4}{{{\color{numb}4}}}
-	{1}{5}{{{\color{numb}5}}}{1}{6}{{{\color{numb}6}}}{1}{7}{{{\color{numb}7}}}
-	{1}{8}{{{\color{numb}8}}}{1}{9}{{{\color{numb}9}}}{1}{:}
-	{{{\color{punct}{:}}}}{1}{,}{{{\color{punct}{,}}}}{1}{\{}
-	{{{\color{delim}{\{}}}}{1}{\}}{{{\color{delim}{\}}}}}
-	{1}{[}{{{\color{delim}{[}}}}{1}{]}{{{\color{delim}{]}}}}{1},
+	literate=*{0}{{{\color{cardinalred}0}}}{1}{1}{{{\color{cardinalred}1}}}{1}{2}
+	{{{\color{cardinalred}2}}}{1}{3}{{{\color{cardinalred}3}}}{1}{4}{{{\color{cardinalred}4}}}
+	{1}{5}{{{\color{cardinalred}5}}}{1}{6}{{{\color{cardinalred}6}}}{1}{7}{{{\color{cardinalred}7}}}
+	{1}{8}{{{\color{cardinalred}8}}}{1}{9}{{{\color{cardinalred}9}}}{1}{:}
+	{{{\color{dkcyan}{:}}}}{1}{,}{{{\color{dkcyan}{,}}}}{1}{\{}
+	{{{\color{MidnightBlue}{\{}}}}{1}{\}}{{{\color{MidnightBlue}{\}}}}}
+	{1}{[}{{{\color{MidnightBlue}{[}}}}{1}{]}{{{\color{MidnightBlue}{]}}}}{1},
 	tabsize=2
 }
 
@@ -4747,22 +4728,22 @@
 	morecomment=[l]{//},
 	morecomment=[s]{/*}{*/},
 	moredelim=[s][{\itshape\color[rgb]{0,0,0.75}}]{\#[}{]},
-	morekeywords=[2]{ % Traits
+	morekeywords=[2]{% Traits
 		Add,AddAssign,Any,AsciiExt,AsInner,AsInnerMut,AsMut,AsRawFd,AsRawHandle,AsRawSocket,AsRef,Binary,BitAnd,BitAndAssign,Bitor,BitOr,BitOrAssign,BitXor,BitXorAssign,Borrow,BorrowMut,Boxed,BoxPlace,BufRead,BuildHasher,CastInto,CharExt,Clone,CoerceUnsized,CommandExt,Copy,Debug,DecodableFloat,Default,Deref,DerefMut,DirBuilderExt,DirEntryExt,Display,Div,DivAssign,DoubleEndedIterator,DoubleEndedSearcher,Drop,EnvKey,Eq,Error,ExactSizeIterator,ExitStatusExt,Extend,FileExt,FileTypeExt,Float,Fn,FnBox,FnMut,FnOnce,Freeze,From,FromInner,FromIterator,FromRawFd,FromRawHandle,FromRawSocket,FromStr,FullOps,FusedIterator,Generator,Hash,Hasher,Index,IndexMut,InPlace,Int,Into,IntoCow,IntoInner,IntoIterator,IntoRawFd,IntoRawHandle,IntoRawSocket,IsMinusOne,IsZero,Iterator,JoinHandleExt,LargeInt,LowerExp,LowerHex,MetadataExt,Mul,MulAssign,Neg,Not,Octal,OpenOptionsExt,Ord,OsStrExt,OsStringExt,Packet,PartialEq,PartialOrd,Pattern,PermissionsExt,Place,Placer,Pointer,Product,Put,RangeArgument,RawFloat,Read,Rem,RemAssign,Seek,Shl,ShlAssign,Shr,ShrAssign,Sized,SliceConcatExt,SliceExt,SliceIndex,Stats,Step,StrExt,Sub,SubAssign,Sum,Sync,TDynBenchFn,Terminal,Termination,ToOwned,ToSocketAddrs,ToString,Try,TryFrom,TryInto,UnicodeStr,Unsize,UpperExp,UpperHex,WideInt,Write
 	},
 	morekeywords=[2]{
 		Send
 	},
-	morekeywords=[3]{ % Primitivas
+	morekeywords=[3]{% Primitivas
 		bool,char,f32,f64,i8,i16,i32,i64,isize,str,u8,u16,u32,u64,unit,usize,i128,u128
 	},
-	morekeywords=[4]{ % Valor y tipo de constructores
+	morekeywords=[4]{% Valor y tipo de constructores
 		Err,false,None,Ok,Some,true
 	},
-	morekeywords=[5]{ % Identificadores
+	morekeywords=[5]{% Identificadores
 		assert!,assert_eq!,assert_ne!,cfg!,column!,compile_error!,concat!,concat_idents!,debug_assert!,debug_assert_eq!,debug_assert_ne!,env!,eprint!,eprintln!,file!,format!,format_args!,include!,include_bytes!,include_str!,line!,module_path!,option_env!,panic!,print!,println!,select!,stringify!,thread_local!,try!,unimplemented!,unreachable!,vec!,write!,writeln!
 	},
-	morekeywords={ % Palabras reservadas
+	morekeywords={% Palabras reservadas
 		abstract,alignof,become,box,do,final,macro,offsetof,override,priv, proc,pure,sizeof,typeof,unsized,virtual,yield
 	},
 	morekeywords={
@@ -5203,16 +5184,16 @@
 		Template.Author.Email={pablo@ppizarror.com},
 		Template.Author.Web={https://ppizarror.com},
 		Template.Author={Pablo Pizarro R.},
-		Template.Date={29/10/2023},
+		Template.Date={04/11/2023},
 		Template.Encoding={UTF-8},
 		Template.Latex.Compiler={pdflatex},
 		Template.License.Type={MIT},
 		Template.License.Web={https://opensource.org/licenses/MIT},
 		Template.Name={Template-Presentacion},
 		Template.Type={Normal},
-		Template.Version.Dev={1.2.2-1-PRES},
-		Template.Version.Hash={7C687B5EC2D0F78EDF27F7A130B62776},
-		Template.Version.Release={1.2.2},
+		Template.Version.Dev={1.2.3-PRES},
+		Template.Version.Hash={E79F25BC9302AF6E3DEBFE4BEB099445},
+		Template.Version.Release={1.2.3},
 		Template.Web.Dev={https://github.com/Template-Latex/Template-Presentacion},
 		Template.Web.Manual={https://latex.ppizarror.com/presentacion},
 	},
@@ -5220,7 +5201,7 @@
 	pdfmenubar={\cfgpdfmenubar},
 	pdfpagelayout={\cfgpdflayout},
 	pdfpagemode={\cfgpdfpagemode},
-	pdfproducer={Template-Presentacion v1.2.2 | (Pablo Pizarro R.) ppizarror.com},
+	pdfproducer={Template-Presentacion v1.2.3 | (Pablo Pizarro R.) ppizarror.com},
 	pdfremotestartview={Fit},
 	pdfstartpage={1},
 	pdfstartview={\cfgpdfpageview},
@@ -5277,7 +5258,7 @@
 	}
 }{
 	% Color de links sin borde
-	\hypersetup{ % No reorganizar
+	\hypersetup{% No reorganizar
 		hidelinks,
 		colorlinks=true,
 		citecolor=\numcitecolor,
@@ -5292,11 +5273,11 @@
 % -----------------------------------------------------------------------------
 % Márgenes de las leyendas por defecto
 \setcaptionmargincm{\captionlrmargin}
-\ifthenelse{\equal{\captiontextbold}{true}}{ % Texto en negrita en etiquetas
+\ifthenelse{\equal{\captiontextbold}{true}}{% Texto en negrita en etiquetas
 	\renewcommand{\captiontextbold}{bf}}{
 	\renewcommand{\captiontextbold}{}
 }
-\ifthenelse{\equal{\captiontextsubnumbold}{true}}{ % Número en negritas
+\ifthenelse{\equal{\captiontextsubnumbold}{true}}{% Número en negritas
 	\renewcommand{\captiontextsubnumbold}{bf}}{
 	\renewcommand{\captiontextsubnumbold}{}
 }
@@ -5361,24 +5342,24 @@
 }
 
 % Alineado de leyendas
-\ifthenelse{\equal{\captionalignment}{justified}}{ % Leyenda justificada
+\ifthenelse{\equal{\captionalignment}{justified}}{% Leyenda justificada
 	\captionsetup{
 		format=plain,
 		justification=justified
 	}
 }{
-\ifthenelse{\equal{\captionalignment}{centered}}{ % Leyenda centrada
+\ifthenelse{\equal{\captionalignment}{centered}}{% Leyenda centrada
 	\captionsetup{
 		justification=centering
 	}
 }{
-\ifthenelse{\equal{\captionalignment}{left}}{ % Leyenda alineada a la izquierda
+\ifthenelse{\equal{\captionalignment}{left}}{% Leyenda alineada a la izquierda
 	\captionsetup{
 		justification=raggedright,
 		singlelinecheck=false
 	}
 }{
-\ifthenelse{\equal{\captionalignment}{right}}{ % Leyenda alineada a la derecha
+\ifthenelse{\equal{\captionalignment}{right}}{% Leyenda alineada a la derecha
 	\captionsetup{
 		justification=raggedleft,
 		singlelinecheck=false
